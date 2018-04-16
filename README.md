@@ -8,7 +8,7 @@ Currently this only works on osx due to the fact that the module [`after-effects
 
 ## Usage
 
-[![NPM](https://nodei.co/npm/ae-to-json-cli.png)](https://www.npmjs.com/package/ae-to-json-cli)
+[![NPM](https://nodei.co/npm/ae-to-json.png)](https://www.npmjs.com/package/ae-to-json)
 
 ### Install
 ```bash
