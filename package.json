@@ -1,0 +1,10 @@
+{
+  "name": "AE-WEBGL",
+  "version": "0.0.1",
+  "private": true,
+  "author": "WaterTian <changewater@qq.com>",
+  "dependencies": {
+    "ae-to-json": "^1.1.2",
+    "after-effects": "^0.4.15"
+  }
+}
