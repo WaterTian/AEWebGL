@@ -25,14 +25,15 @@ var mouse = new THREE.Vector2(0, 0);
 var timeLine = new TimeLine();
 var bgVideo = new BgVideo();
 
-var videoFrame = 0;
+var oldCameraValues;
 
 
 var cameraPerspective, cameraPerspectiveHelper;
 
 
 
-var solidPo, solidOr;
+var solid1Po, solid1Or,solid1Sc;
+var solid2Po, solid2Or,solid2Sc;
 
 export default class Scene {
 	constructor() {
@@ -59,11 +60,17 @@ export default class Scene {
 		var fl = new THREE.FileLoader();
 		fl.load('assets/output.json', function(data) {
 			var jsonObj = JSON.parse(data);
-			// console.log(jsonObj.project.items[2].layers[1].properties);
+			// console.log(jsonObj.project.items[jsonObj.project.numItems-1].layers);
+
+			var layerCamera = jsonObj.project.items[jsonObj.project.numItems-1].layers[1];
+			var layer1 = jsonObj.project.items[jsonObj.project.numItems-1].layers[3];
+			var layer2 = jsonObj.project.items[jsonObj.project.numItems-1].layers[2];
+
+			console.log(layer1);
 
 
-			var postionArr = jsonObj.project.items[2].layers[0].properties.Transform.Position.keyframes;
-			var orientationArr = jsonObj.project.items[2].layers[0].properties.Transform.Orientation.keyframes;
+			var postionArr = layerCamera.properties.Transform.Position.keyframes;
+			var orientationArr = layerCamera.properties.Transform.Orientation.keyframes;
 
 			for (var i = 0; i < postionArr.length; i++) {
 				var v = {
@@ -71,21 +78,28 @@ export default class Scene {
 					y: postionArr[i][1][1],
 					z: postionArr[i][1][2],
 					rx: orientationArr[i][1][0],
-					ry: orientationArr[i][1][0],
-					rz: orientationArr[i][1][0],
+					ry: orientationArr[i][1][1],
+					rz: orientationArr[i][1][2],
 				};
 				var t = postionArr[i][0];
 				timeLine.cameraScript.addKeyframe(v, t);
+
+				if(i==postionArr.length-1)timeLine.cameraScript.addKeyframe(v, t+1);
+
 			}
 
 			console.log(timeLine.cameraScript);
 
 
 
-			solidPo = jsonObj.project.items[2].layers[1].properties.Transform.Position.keyframes[0][1];
-			solidOr = jsonObj.project.items[2].layers[1].properties.Transform.Position.keyframes[0][1];
-			console.log(solidPo);
+			solid1Po = layer1.properties.Transform.Position.keyframes[0][1];
+			solid1Or = layer1.properties.Transform.Orientation.keyframes[0][1];
+			solid1Sc = layer1.properties.Transform.Scale.keyframes[0][1];
+			console.log(solid1Sc);
 
+			solid2Po = layer2.properties.Transform.Position.keyframes[0][1];
+			solid2Or = layer2.properties.Transform.Orientation.keyframes[0][1];
+			solid2Sc = layer2.properties.Transform.Scale.keyframes[0][1];
 
 
 			That.init();
@@ -102,14 +116,14 @@ export default class Scene {
 
 		this.scene = new THREE.Scene();
 
-		this.camera = new THREE.PerspectiveCamera(56.9, 560 / 320, .01, 10000);
+		this.camera = new THREE.PerspectiveCamera(30, 1920 / 1080, .1, 50000);
 		// this.camera.target = new THREE.Vector3(0, 0, 0);
 		this.camera.position.set(0, 0, -1000);
+		// this.camera.rotation.set(0, Math.PI, 0);
 		// this.camera.lookAt(this.camera.target);
-		// this.scene.add(this.camera);
 
 		cameraPerspective = new THREE.Mesh(
-			new THREE.BoxGeometry(200, 200, 200),
+			new THREE.BoxGeometry(200, 50, 300),
 			new THREE.MeshBasicMaterial({
 				color: 0xffffff,
 				wireframe: true
@@ -117,21 +131,41 @@ export default class Scene {
 		);
 		this.scene.add(cameraPerspective);
 
-		// cameraPerspective = new THREE.PerspectiveCamera(56.9, 560 / 320, 150, 1000);
+		// cameraPerspective = new THREE.PerspectiveCamera(56.9, 1920 / 1080, 150, 1000);
 		// cameraPerspectiveHelper = new THREE.CameraHelper(cameraPerspective);
 		// this.scene.add(cameraPerspectiveHelper);
 
 
-		var solid = new THREE.Mesh(
-			new THREE.BoxGeometry(320, 320, 20),
+		var solid1 = new THREE.Mesh(
+			new THREE.BoxGeometry(368, 368, 10),
 			new THREE.MeshBasicMaterial({
-				color: 0xffffff,
-				// wireframe: true
+				color: 0x0000ff,
+				wireframe: true
 			})
 		);
-		this.scene.add(solid);
-		solid.position.set(solidPo[0], solidPo[1], solidPo[2]);
-		solid.rotation.set(solidOr[0], solidOr[1], solidOr[2]);
+		this.scene.add(solid1);
+		solid1.position.set(-solid1Po[0], -solid1Po[1], solid1Po[2]);
+		solid1.scale.set(solid1Sc[0]/100, solid1Sc[1]/100, solid1Sc[2]/100);
+		// solid1.position.set(-200, -300, 0);
+		// solid1.rotation.set(solidOr[0], solidOr[1], solidOr[2]);
+		var quaternion = new THREE.Quaternion();
+		quaternion.setFromEuler(new THREE.Euler(solid1Or[0] * Math.PI / 180, solid1Or[1] * Math.PI / 180, solid1Or[2] * Math.PI / 180, 'XYZ'));
+		solid1.rotation.setFromQuaternion(quaternion);
+
+
+		var solid2 = new THREE.Mesh(
+			new THREE.BoxGeometry(368, 368, 10),
+			new THREE.MeshBasicMaterial({
+				color: 0xff0000,
+				wireframe: true
+			})
+		);
+		this.scene.add(solid2);
+		solid2.position.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
+		solid2.scale.set(solid2Sc[0]/100, solid2Sc[1]/100, solid2Sc[2]/100);
+		var quaternion = new THREE.Quaternion();
+		quaternion.setFromEuler(new THREE.Euler(solid2Or[0] * Math.PI / 180, solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
+		solid2.rotation.setFromQuaternion(quaternion);
 
 
 
@@ -213,6 +247,13 @@ export default class Scene {
 
 	initScene() {
 
+		var helper = new THREE.GridHelper(10000, 100);
+		helper.position.y = -700;
+		helper.material.opacity = 0.5;
+		helper.material.transparent = true;
+		this.scene.add(helper);
+
+
 		var geometry = new THREE.SphereGeometry(20, 4, 3);
 
 		for (var i = 0; i < 5; i++) {
@@ -250,27 +291,39 @@ export default class Scene {
 
 
 		var trackTime = bgVideo.currentTime;
+		// var trackTime = 0;
 
 		// console.log(trackTime);
+
 
 		// videoFrame++;
 		// if (videoFrame > 90) videoFrame = 0;
 
 		var cameraValues = timeLine.getValues(timeLine.cameraScript, trackTime);
 
-		this.camera.position.set(-cameraValues.x, cameraValues.y, -cameraValues.z);
+		// cameraPerspective.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
+		this.camera.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
 		// this.camera.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
+		// cameraPerspective.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
 
-		// var quaternion = new THREE.Quaternion();
-		// quaternion.setFromEuler ( new THREE.Euler( cameraValues.rx/360, cameraValues.ry/360, cameraValues.rz/360, 'XYZ' ) );
 
-		// this.camera.quaternion.slerp( quaternion, .1 )
+		// console.log(Math.floor(cameraValues.ry))
+
+
+		var quaternion = new THREE.Quaternion();
+		quaternion.setFromEuler(new THREE.Euler(-cameraValues.rx * Math.PI / 180, -cameraValues.ry * Math.PI / 180, cameraValues.rz * Math.PI / 180, 'XYZ'));
+		
+		var quaternion2 = new THREE.Quaternion();
+		quaternion2.setFromEuler(new THREE.Euler(0,  Math.PI, 0, 'XYZ'));
+		
+		quaternion.multiply(quaternion2);
+
+		// cameraPerspective.quaternion.slerp(quaternion, .1);
+		this.camera.quaternion.slerp(quaternion, .9);
 
 
 		var renderCamera = this.camera;
 		this.renderer.render(this.scene, renderCamera);
-
-
 
 	}
 

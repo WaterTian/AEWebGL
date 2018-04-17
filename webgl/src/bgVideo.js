@@ -11,7 +11,7 @@ export default class bgVideo {
 
 		this.video.loop = true;
 		this.video.muted = true;
-		this.video.src = 'assets/1.mp4';
+		this.video.src = 'assets/2.mp4';
 
 		this.video.play();
 
