@@ -116,7 +116,8 @@ export default class Scene {
 
 		this.scene = new THREE.Scene();
 
-		this.camera = new THREE.PerspectiveCamera(30, 1920 / 1080, .1, 50000);
+		this.camera = new THREE.PerspectiveCamera(38, 1920 / 1080, .1, 50000);
+		this.camera.zoom = 1.58;
 		// this.camera.target = new THREE.Vector3(0, 0, 0);
 		this.camera.position.set(0, 0, -1000);
 		// this.camera.rotation.set(0, Math.PI, 0);
@@ -137,7 +138,7 @@ export default class Scene {
 
 
 		var solid1 = new THREE.Mesh(
-			new THREE.BoxGeometry(368, 368, 10),
+			new THREE.BoxGeometry(368, 368, 1),
 			new THREE.MeshBasicMaterial({
 				color: 0x0000ff,
 				wireframe: true
@@ -149,12 +150,12 @@ export default class Scene {
 		// solid1.position.set(-200, -300, 0);
 		// solid1.rotation.set(solidOr[0], solidOr[1], solidOr[2]);
 		var quaternion = new THREE.Quaternion();
-		quaternion.setFromEuler(new THREE.Euler(solid1Or[0] * Math.PI / 180, solid1Or[1] * Math.PI / 180, solid1Or[2] * Math.PI / 180, 'XYZ'));
+		quaternion.setFromEuler(new THREE.Euler(-solid1Or[0] * Math.PI / 180, -solid1Or[1] * Math.PI / 180, solid1Or[2] * Math.PI / 180, 'XYZ'));
 		solid1.rotation.setFromQuaternion(quaternion);
 
 
 		var solid2 = new THREE.Mesh(
-			new THREE.BoxGeometry(368, 368, 10),
+			new THREE.BoxGeometry(368, 368, 1),
 			new THREE.MeshBasicMaterial({
 				color: 0xff0000,
 				wireframe: true
@@ -164,7 +165,7 @@ export default class Scene {
 		solid2.position.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
 		solid2.scale.set(solid2Sc[0]/100, solid2Sc[1]/100, solid2Sc[2]/100);
 		var quaternion = new THREE.Quaternion();
-		quaternion.setFromEuler(new THREE.Euler(solid2Or[0] * Math.PI / 180, solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
+		quaternion.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
 		solid2.rotation.setFromQuaternion(quaternion);
 
 
@@ -318,7 +319,7 @@ export default class Scene {
 		
 		quaternion.multiply(quaternion2);
 
-		// cameraPerspective.quaternion.slerp(quaternion, .1);
+		// cameraPerspective.quaternion.slerp(quaternion, .9);
 		this.camera.quaternion.slerp(quaternion, .9);
 
 

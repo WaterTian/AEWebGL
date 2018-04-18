@@ -11,7 +11,7 @@
   "isProfessionalVersion": true,
   "isoLanguage": "en_US",
   "language": 1612,
-  "memoryInUse": 206131200,
+  "memoryInUse": 3007500288,
   "saveProjectOnCrash": true,
   "version": "14.0.0x207",
   "project": {
@@ -21,7 +21,7 @@
     "framesCountType": 2614,
     "gpuAccelType": 1815,
     "numItems": 5,
-    "revision": 5555,
+    "revision": 9681,
     "selection": [],
     "timeDisplayType": 2012,
     "toolType": 8812,
@@ -172,7 +172,7 @@
         "name": "MTCHMV.mp4",
         "pixelAspect": 1,
         "proxySource": null,
-        "time": 7.65258006645224,
+        "time": 10.5222975913718,
         "typeName": "Footage",
         "width": 1920,
         "file": null,
@@ -226,7 +226,7 @@
         "selectedLayers": [],
         "selectedProperties": [],
         "shutterAngle": 180,
-        "time": 7.65258006645224,
+        "time": 10.5222975913718,
         "typeName": "Composition",
         "usedIn": [],
         "width": 640,
@@ -259,7 +259,7 @@
             "samplingQuality": 4812,
             "selectedProperties": [],
             "stretch": 100,
-            "time": 7.65258006645224,
+            "time": 10.5222975913718,
             "trackMatteType": 5012,
             "width": 1920,
             "properties": {
@@ -3652,7 +3652,7 @@
             "propertyType": "NAMED_GROUP",
             "selectedProperties": [],
             "stretch": 100,
-            "time": 7.65258006645224,
+            "time": 10.5222975913718,
             "properties": {
               "Marker": {
                 "active": true,
@@ -3722,9 +3722,9 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    -775.264555084926,
-                    157.17091419381,
-                    -2198.25292747215
+                    -220.949463140003,
+                    164.433369835417,
+                    -1573.91297888494
                   ],
                   "keyframes": [
                     [
@@ -15924,9 +15924,9 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    1.6870804519096,
-                    50.0723373058332,
-                    355.962928240234
+                    359.723791099149,
+                    16.9750792927697,
+                    359.176064811389
                   ],
                   "keyframes": [
                     [
@@ -28144,11 +28144,11 @@
                   "propertyValueType": "OneD",
                   "selectedKeys": [],
                   "unitsText": "pixels",
-                  "value": 828.386952072754,
+                  "value": 790.2,
                   "keyframes": [
                     [
                       0,
-                      828.386952072754
+                      790.2
                     ]
                   ]
                 },
@@ -28459,7 +28459,7 @@
             "selectedProperties": [],
             "stretch": 100,
             "threeDLayer": true,
-            "time": 7.65258006645224,
+            "time": 10.5222975913718,
             "trackMatteType": 5012,
             "width": 368,
             "properties": {
@@ -28580,17 +28580,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    2000,
-                    700,
-                    1300
+                    699.035506631683,
+                    383.401689635338,
+                    -60.6472657856219
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        2000,
-                        700,
-                        1300
+                        699.035506631683,
+                        383.401689635338,
+                        -60.6472657856219
                       ]
                     ]
                   ]
@@ -28674,17 +28674,17 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    3000,
-                    2000,
-                    3000
+                    2037.77473963106,
+                    503.69722336141,
+                    1000
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        3000,
-                        2000,
-                        3000
+                        2037.77473963106,
+                        503.69722336141,
+                        1000
                       ]
                     ]
                   ]
@@ -28707,7 +28707,7 @@
                   "value": [
                     270,
                     0,
-                    85
+                    109
                   ],
                   "keyframes": [
                     [
@@ -28715,7 +28715,7 @@
                       [
                         270,
                         0,
-                        85
+                        109
                       ]
                     ]
                   ]
@@ -28765,7 +28765,6 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
-                  "isModified": true,
                   "matchName": "ADBE Rotate Z",
                   "name": "Z Rotation",
                   "propertyDepth": 2,
@@ -28774,11 +28773,10 @@
                   "propertyValueType": "OneD",
                   "selectedKeys": [],
                   "unitsText": "degrees",
-                  "value": 20,
                   "keyframes": [
                     [
                       0,
-                      20
+                      0
                     ]
                   ]
                 },
@@ -31872,7 +31870,7 @@
             "selectedProperties": [],
             "stretch": 100,
             "threeDLayer": true,
-            "time": 7.65258006645224,
+            "time": 10.5222975913718,
             "trackMatteType": 5012,
             "width": 368,
             "properties": {
@@ -31994,17 +31992,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    1450,
-                    -250,
-                    13
+                    1769.83232649578,
+                    -235.814098984797,
+                    528.584212390577
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        1450,
-                        -250,
-                        13
+                        1769.83232649578,
+                        -235.814098984797,
+                        528.584212390577
                       ]
                     ]
                   ]
@@ -32088,16 +32086,16 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    879,
-                    296,
+                    1232,
+                    304,
                     100
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        879,
-                        296,
+                        1232,
+                        304,
                         100
                       ]
                     ]
@@ -32119,16 +32117,16 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    157,
-                    80,
+                    156,
+                    70,
                     203
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        157,
-                        80,
+                        156,
+                        70,
                         203
                       ]
                     ]
