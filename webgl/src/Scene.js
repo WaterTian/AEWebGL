@@ -32,8 +32,30 @@ var cameraPerspective, cameraPerspectiveHelper;
 
 
 
-var solid1Po, solid1Or,solid1Sc;
-var solid2Po, solid2Or,solid2Sc;
+var solid1Po, solid1Or, solid1Sc;
+var solid2Po, solid2Or, solid2Sc;
+
+
+var debug = 0;
+
+
+var clock = new THREE.Clock();
+
+// Physics variables
+var gravityConstant = -598;
+var collisionConfiguration;
+var dispatcher;
+var broadphase;
+var solver;
+var softBodySolver;
+var physicsWorld;
+var rigidBodies = [];
+var margin = 0.05;
+var hinge;
+var rope;
+var transformAux1 = new Ammo.btTransform();
+
+
 
 export default class Scene {
 	constructor() {
@@ -62,9 +84,9 @@ export default class Scene {
 			var jsonObj = JSON.parse(data);
 			// console.log(jsonObj.project.items[jsonObj.project.numItems-1].layers);
 
-			var layerCamera = jsonObj.project.items[jsonObj.project.numItems-1].layers[1];
-			var layer1 = jsonObj.project.items[jsonObj.project.numItems-1].layers[3];
-			var layer2 = jsonObj.project.items[jsonObj.project.numItems-1].layers[2];
+			var layerCamera = jsonObj.project.items[jsonObj.project.numItems - 1].layers[1];
+			var layer1 = jsonObj.project.items[jsonObj.project.numItems - 1].layers[3];
+			var layer2 = jsonObj.project.items[jsonObj.project.numItems - 1].layers[2];
 
 			console.log(layer1);
 
@@ -84,7 +106,7 @@ export default class Scene {
 				var t = postionArr[i][0];
 				timeLine.cameraScript.addKeyframe(v, t);
 
-				if(i==postionArr.length-1)timeLine.cameraScript.addKeyframe(v, t+1);
+				if (i == postionArr.length - 1) timeLine.cameraScript.addKeyframe(v, t + 1);
 
 			}
 
@@ -146,7 +168,7 @@ export default class Scene {
 		);
 		this.scene.add(solid1);
 		solid1.position.set(-solid1Po[0], -solid1Po[1], solid1Po[2]);
-		solid1.scale.set(solid1Sc[0]/100, solid1Sc[1]/100, solid1Sc[2]/100);
+		solid1.scale.set(solid1Sc[0] / 100, solid1Sc[1] / 100, solid1Sc[2] / 100);
 		// solid1.position.set(-200, -300, 0);
 		// solid1.rotation.set(solidOr[0], solidOr[1], solidOr[2]);
 		var quaternion = new THREE.Quaternion();
@@ -158,16 +180,25 @@ export default class Scene {
 			new THREE.BoxGeometry(368, 368, 1),
 			new THREE.MeshBasicMaterial({
 				color: 0xff0000,
+				// opacity: 0.1,
 				wireframe: true
 			})
 		);
 		this.scene.add(solid2);
 		solid2.position.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
-		solid2.scale.set(solid2Sc[0]/100, solid2Sc[1]/100, solid2Sc[2]/100);
+		solid2.scale.set(solid2Sc[0] / 100, solid2Sc[1] / 100, solid2Sc[2] / 100);
 		var quaternion = new THREE.Quaternion();
 		quaternion.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
 		solid2.rotation.setFromQuaternion(quaternion);
 
+
+
+		// var helper = new THREE.GridHelper(10000, 100);
+		// helper.position.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
+		// helper.rotation.y = -solid2.rotation.z;
+		// helper.material.opacity = 0.5;
+		// helper.material.transparent = true;
+		// this.scene.add(helper);
 
 
 		this.renderer = new THREE.WebGLRenderer({
@@ -175,26 +206,44 @@ export default class Scene {
 			premultipliedAlpha: false,
 			alpha: true
 		});
-		this.renderer.setClearColor(0x000, 0.0);
+
+
+		// this.renderer.setClearColor(0x000, 0.0);
 		this.renderer.setPixelRatio(window.devicePixelRatio);
-		this.renderer.sortObjects = true;
 		this.renderer.shadowMap.enabled = true;
-		this.renderer.shadowMap.type = THREE.PCFShadowMap;
+		// this.renderer.shadowMap.type = THREE.PCFShadowMap;
 
 
 		container.appendChild(this.renderer.domElement);
 
+		if (debug) {
+			// controls
+			this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+			this.controls.update();
+		}
 
-		// // controls
-		// this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-		// this.controls.update();
 
 
-		var light = new THREE.DirectionalLight();
-		light.position.set(0.5, 0.5, -1);
-		light.castShadow = true;
-		light.shadow.camera.zoom = 4; // tighter shadow map
-		this.scene.add(light);
+		var ambientLight = new THREE.AmbientLight(0x404040);
+		this.scene.add(ambientLight);
+
+
+		var dirLight = new THREE.DirectionalLight(0xffffff, 1);
+		// dirLight.color.setHSL(0.1, 1, 0.95);
+		dirLight.position.set(-1, 1.75, 1);
+		dirLight.position.multiplyScalar(30);
+		this.scene.add(dirLight);
+		dirLight.castShadow = true;
+		dirLight.shadow.mapSize.width = 2048;
+		dirLight.shadow.mapSize.height = 2048;
+		var d = 1000;
+		dirLight.shadow.camera.left = -d - solid2Po[0];
+		dirLight.shadow.camera.right = d;
+		dirLight.shadow.camera.top = d + solid2Po[2];
+		dirLight.shadow.camera.bottom = -d;
+		dirLight.shadow.camera.far = 5000;
+		dirLight.shadow.bias = -0.0001;
+
 
 
 		window.addEventListener('resize', this.onWindowResized);
@@ -248,16 +297,108 @@ export default class Scene {
 
 	initScene() {
 
-		var helper = new THREE.GridHelper(10000, 100);
-		helper.position.y = -700;
-		helper.material.opacity = 0.5;
-		helper.material.transparent = true;
-		this.scene.add(helper);
+
+
+		// Physics configuration
+		collisionConfiguration = new Ammo.btSoftBodyRigidBodyCollisionConfiguration();
+		dispatcher = new Ammo.btCollisionDispatcher(collisionConfiguration);
+		broadphase = new Ammo.btDbvtBroadphase();
+		solver = new Ammo.btSequentialImpulseConstraintSolver();
+		softBodySolver = new Ammo.btDefaultSoftBodySolver();
+		physicsWorld = new Ammo.btSoftRigidDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration, softBodySolver);
+		physicsWorld.setGravity(new Ammo.btVector3(0, gravityConstant, 0));
+		physicsWorld.getWorldInfo().set_m_gravity(new Ammo.btVector3(0, gravityConstant, 0));
+
+
+
+		var pos = new THREE.Vector3();
+		var quat = new THREE.Quaternion();
+
+		// Ground
+		pos.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
+		quat.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
+		var ground = createParalellepiped(solid2Sc[0] * 3.68, solid2Sc[2] * 3.68, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
+			color: 0xffffff,
+			opacity: 0.2,
+			// wireframe: true
+		}));
+		ground.castShadow = true;
+		ground.receiveShadow = true;
+		That.scene.add(ground);
+
+
+		// Boxs
+
+
+		var _n = 0;
+		addBox();
+		function addBox() {
+			for (var i = 0; i < 10; i++) {
+				pos.set(100 * Math.random() - 600, 0, 100 * Math.random() - 1000);
+				quat.set(0, 0, 0, 1);
+				var brick = createParalellepiped(30, 30, 30, 0.5, pos, quat, new THREE.MeshPhongMaterial({
+					color: 0xFFFFFF * Math.random(),
+					// opacity: 0.1,
+					// wireframe: true
+				}));
+
+				brick.castShadow = true;
+				brick.receiveShadow = true;
+				That.scene.add(brick);
+			}
+			_n++;
+
+			if (_n < 10) setTimeout(addBox, 2000);
+		}
+
+
+		function createParalellepiped(sx, sy, sz, mass, pos, quat, material) {
+
+			var threeObject = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz, 1, 1, 1), material);
+			var shape = new Ammo.btBoxShape(new Ammo.btVector3(sx * 0.5, sy * 0.5, sz * 0.5));
+			shape.setMargin(margin);
+
+			createRigidBody(threeObject, shape, mass, pos, quat);
+
+			return threeObject;
+		}
+
+		function createRigidBody(threeObject, physicsShape, mass, pos, quat) {
+
+			threeObject.position.copy(pos);
+			threeObject.quaternion.copy(quat);
+
+			var transform = new Ammo.btTransform();
+			transform.setIdentity();
+			transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z));
+			transform.setRotation(new Ammo.btQuaternion(quat.x, quat.y, quat.z, quat.w));
+			var motionState = new Ammo.btDefaultMotionState(transform);
+
+			var localInertia = new Ammo.btVector3(0, 0, 0);
+			physicsShape.calculateLocalInertia(mass, localInertia);
+
+			var rbInfo = new Ammo.btRigidBodyConstructionInfo(mass, motionState, physicsShape, localInertia);
+			var body = new Ammo.btRigidBody(rbInfo);
+
+			threeObject.userData.physicsBody = body;
+
+
+			if (mass > 0) {
+				rigidBodies.push(threeObject);
+
+				// Disable deactivation
+				body.setActivationState(4);
+			}
+
+			physicsWorld.addRigidBody(body);
+
+		}
+
 
 
 		var geometry = new THREE.SphereGeometry(20, 4, 3);
 
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 0; i++) {
 
 			var material = new THREE.MeshBasicMaterial({
 				color: 0xffffff * Math.random(),
@@ -266,17 +407,20 @@ export default class Scene {
 
 			var mesh = new THREE.Mesh(geometry, material);
 
-			mesh.position.x = Math.random() * 10000 - 5000;
-			mesh.position.y = Math.random() * 10000 - 5000;
-			mesh.position.z = Math.random() * 20000 - 10000;
+			mesh.position.x = Math.random() * 2000 - 1000;
+			mesh.position.y = Math.random() * 1000 - 300;
+			mesh.position.z = Math.random() * 4000 - 2000;
 
 			//mesh.rotation.x = Math.random() * 360 * ( Math.PI / 180 );
 			// mesh.rotation.y = Math.random() * 2 * Math.PI;
 
-			mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 4 + 1;
+			mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 1 + .1;
 
 			this.scene.add(mesh);
 		}
+
+
+
 	}
 
 
@@ -290,6 +434,10 @@ export default class Scene {
 	render() {
 		if (this.stats) this.stats.update();
 
+		var deltaTime = clock.getDelta();
+		this.updatePhysics(deltaTime);
+
+
 
 		var trackTime = bgVideo.currentTime;
 		// var trackTime = 0;
@@ -302,8 +450,9 @@ export default class Scene {
 
 		var cameraValues = timeLine.getValues(timeLine.cameraScript, trackTime);
 
-		// cameraPerspective.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
-		this.camera.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
+
+		if (debug) cameraPerspective.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
+		else this.camera.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
 		// this.camera.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
 		// cameraPerspective.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
 
@@ -313,18 +462,43 @@ export default class Scene {
 
 		var quaternion = new THREE.Quaternion();
 		quaternion.setFromEuler(new THREE.Euler(-cameraValues.rx * Math.PI / 180, -cameraValues.ry * Math.PI / 180, cameraValues.rz * Math.PI / 180, 'XYZ'));
-		
+
 		var quaternion2 = new THREE.Quaternion();
-		quaternion2.setFromEuler(new THREE.Euler(0,  Math.PI, 0, 'XYZ'));
-		
+		quaternion2.setFromEuler(new THREE.Euler(0, Math.PI, 0, 'XYZ'));
+
 		quaternion.multiply(quaternion2);
 
-		// cameraPerspective.quaternion.slerp(quaternion, .9);
-		this.camera.quaternion.slerp(quaternion, .9);
+		if (debug) cameraPerspective.quaternion.slerp(quaternion, 1);
+		else this.camera.quaternion.slerp(quaternion, 1);
 
 
 		var renderCamera = this.camera;
 		this.renderer.render(this.scene, renderCamera);
+
+	}
+
+
+
+	updatePhysics(deltaTime) {
+
+
+		// Step world
+		physicsWorld.stepSimulation(deltaTime, 10);
+
+		// Update rigid bodies
+		for (var i = 0, il = rigidBodies.length; i < il; i++) {
+			var objThree = rigidBodies[i];
+			var objPhys = objThree.userData.physicsBody;
+			var ms = objPhys.getMotionState();
+			if (ms) {
+				ms.getWorldTransform(transformAux1);
+				var p = transformAux1.getOrigin();
+				var q = transformAux1.getRotation();
+				objThree.position.set(p.x(), p.y(), p.z());
+				objThree.quaternion.set(q.x(), q.y(), q.z(), q.w());
+
+			}
+		}
 
 	}
 
