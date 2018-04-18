@@ -39,6 +39,9 @@ var solid2Po, solid2Or, solid2Sc;
 var debug = 0;
 
 
+var oldQ = new THREE.Quaternion();
+
+
 var clock = new THREE.Clock();
 
 // Physics variables
@@ -332,6 +335,7 @@ export default class Scene {
 
 		var _n = 0;
 		addBox();
+
 		function addBox() {
 			for (var i = 0; i < 10; i++) {
 				pos.set(100 * Math.random() - 600, 0, 100 * Math.random() - 1000);
@@ -398,7 +402,7 @@ export default class Scene {
 
 		var geometry = new THREE.SphereGeometry(20, 4, 3);
 
-		for (var i = 0; i < 0; i++) {
+		for (var i = 0; i < 1000; i++) {
 
 			var material = new THREE.MeshBasicMaterial({
 				color: 0xffffff * Math.random(),
@@ -468,8 +472,21 @@ export default class Scene {
 
 		quaternion.multiply(quaternion2);
 
-		if (debug) cameraPerspective.quaternion.slerp(quaternion, 1);
-		else this.camera.quaternion.slerp(quaternion, 1);
+
+		//// 求差= 逆乘
+		var q1 = quaternion.clone();
+		q1 = q1.inverse();
+		var q2 = q1.multiply(oldQ);
+
+		var _able = Math.abs(q2.x) + Math.abs(q2.y) + Math.abs(q2.z) < 0.01;
+		var _t = 1;
+
+		if (_able) {
+			if (debug) cameraPerspective.quaternion.slerp(quaternion, _t);
+			else this.camera.quaternion.slerp(quaternion, _t);
+		}
+
+		oldQ = quaternion.clone();
 
 
 		var renderCamera = this.camera;
