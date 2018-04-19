@@ -7,6 +7,9 @@ const dat = require('dat-gui');
 const VConsole = require('vconsole');
 
 
+const Tone = require('tone');
+
+
 const isMobile = require('./libs/isMobile.min.js');
 
 const TimeLine = require('./TimeLine').default;
@@ -24,16 +27,13 @@ var logoDiv;
 
 var mouse = new THREE.Vector2(0, 0);
 
-var timeLine = new TimeLine();
-var bgVideo = new BgVideo();
-var rollOver = new RollOver();
 
-var oldCameraValues;
+var soundPlayer;
+var toneMeter;
+var soundPanVol;
 
 
 var cameraPerspective, cameraPerspectiveHelper;
-
-
 
 var solid1Po, solid1Or, solid1Sc;
 var solid2Po, solid2Or, solid2Sc;
@@ -44,20 +44,21 @@ var debug = 0;
 
 var oldQ = new THREE.Quaternion();
 
-
 var clock = new THREE.Clock();
 
 
+var timeLine = new TimeLine();
+var bgVideo = new BgVideo();
+var rollOver = new RollOver();
 var physics;
-
 
 
 export default class Scene {
 	constructor() {
 
 		// this.vconsole = new VConsole();
-		this.stats = new Stats();
-		document.body.appendChild(this.stats.dom);
+		// this.stats = new Stats();
+		// document.body.appendChild(this.stats.dom);
 
 
 
@@ -69,11 +70,30 @@ export default class Scene {
 			event.preventDefault();
 		}
 
-		this.loadJson();
+		this.loadSound();
+	}
+
+
+	loadSound() {
+
+		soundPlayer = new Tone.Player("assets/bg2.mp3", this.loadJson);
+
+		soundPanVol = new Tone.PanVol(0, 10);
+		soundPlayer.connect(soundPanVol);
+		soundPanVol.toMaster();
+
+		// toneMeter = new Tone.Meter();
+		toneMeter = new Tone.Waveform(64);
+		soundPlayer.connect(toneMeter);
+		toneMeter.toMaster();
+
 	}
 
 
 	loadJson() {
+
+		soundPlayer.start();
+
 		var fl = new THREE.FileLoader();
 		fl.load('assets/output.json', function(data) {
 			var jsonObj = JSON.parse(data);
@@ -174,11 +194,11 @@ export default class Scene {
 
 		var solid2 = new THREE.Mesh(
 			new THREE.BoxGeometry(368, 368, 1),
-			new THREE.MeshBasicMaterial({
-				color: 0xff0000,
-				// opacity: 0.1,
-				// wireframe: true
-				visible: false
+			new THREE.MeshPhongMaterial({
+				color: 0xffffff,
+				opacity: 0.1,
+				// wireframe: true,
+				// visible: false,
 			})
 		);
 		this.scene.add(solid2);
@@ -187,6 +207,9 @@ export default class Scene {
 		var quaternion = new THREE.Quaternion();
 		quaternion.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
 		solid2.rotation.setFromQuaternion(quaternion);
+
+		solid2.castShadow = true;
+		solid2.receiveShadow = true;
 
 
 
@@ -221,7 +244,7 @@ export default class Scene {
 
 
 
-		var ambientLight = new THREE.AmbientLight(0x404040);
+		var ambientLight = new THREE.AmbientLight(0x666666);
 		this.scene.add(ambientLight);
 
 
@@ -263,7 +286,7 @@ export default class Scene {
 
 		if (physics) {
 			var rollOverPos = rollOver.getPostion(mouse, That.camera);
-            physics.addBox(rollOverPos);
+			physics.addBox(rollOverPos);
 		}
 	}
 
@@ -338,12 +361,16 @@ export default class Scene {
 		var deltaTime = clock.getDelta();
 		if (physics) physics.update(deltaTime);
 
-  //       // rollOver obj
+		var soundValue = toneMeter.getValue();
+		if (physics) physics.updateBoxs(soundValue);
+
+
+		//       // rollOver obj
 		// rollOver.update(mouse, That.camera);
 
 
 
-		if (bgVideo.currentTime == 0 || bgVideo.currentTime > 13.5) bgVideo.currentTime = 4.5;
+		if (bgVideo.currentTime == 0 || bgVideo.currentTime > 12.5) bgVideo.currentTime = 4.5;
 
 		var trackTime = bgVideo.currentTime;
 		// var trackTime = 0;

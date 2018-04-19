@@ -16,6 +16,8 @@ var transformAux1 = new Ammo.btTransform();
 
 var obj;
 
+var boxArr = [];
+
 
 var That;
 
@@ -53,10 +55,11 @@ export default class physicsSense {
 		var ground = this.createParalellepiped(solid2Sc[0] * 3.68, solid2Sc[2] * 3.68, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
 			color: 0xffffff,
 			opacity: 0.2,
-			wireframe: true
+			// wireframe: true,
+			visible:false,
 		}));
-		ground.castShadow = true;
-		ground.receiveShadow = true;
+		// ground.castShadow = true;
+		// ground.receiveShadow = true;
 
 
 
@@ -66,21 +69,37 @@ export default class physicsSense {
 	addBox(pos) {
 		var quat = new THREE.Quaternion();
 
-		pos.add(new THREE.Vector3(Math.random()*100, Math.random()*100, Math.random()*100));
+		pos.add(new THREE.Vector3(Math.random() * 200, Math.random() * 200, Math.random() * 200));
 
-		for (var i = 0; i < 10; i++) {
+		var texture = new THREE.TextureLoader().load("assets/box.png");
+
+		for (var i = 0; i < 8; i++) {
 			quat.set(Math.random(), Math.random(), Math.random(), 1);
-			var brick = That.createParalellepiped(Math.random()*100+50, Math.random()*100+50, Math.random()*100+50, 1, pos, quat, new THREE.MeshPhongMaterial({
-				color: 0xFFFFFF * Math.random(),
+			var brick = That.createParalellepiped(Math.random() * 100 + 50, Math.random() * 100 + 50, Math.random() * 100 + 50, 1, pos, quat, new THREE.MeshPhongMaterial({
+				// color: 0xFFFFFF * Math.random(),
+				map: texture,
 				// opacity: 0.1,
 				// wireframe: true
 			}));
 
 			brick.castShadow = true;
 			brick.receiveShadow = true;
+
+
+			boxArr.push(brick);
 		}
 	}
+	updateBoxs(soundValue) {
+		// for (var i = 0; i < boxArr.length; i++) {
+		// 	if (!soundValue[i]) return;
 
+		// 	var _s = Math.abs(soundValue[i]);
+
+		// 	boxArr[i].material.opacity = _s*6+0.6;
+
+		// }
+
+	}
 
 
 	createParalellepiped(sx, sy, sz, mass, pos, quat, material) {
