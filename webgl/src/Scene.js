@@ -11,6 +11,8 @@ const isMobile = require('./libs/isMobile.min.js');
 
 const TimeLine = require('./TimeLine').default;
 const BgVideo = require('./bgVideo').default;
+const RollOver = require('./rollOver').default;
+const Physics = require('./physicsSense').default;
 
 window.floatType = isMobile.any ? THREE.HalfFloatType : THREE.FloatType;
 
@@ -24,6 +26,7 @@ var mouse = new THREE.Vector2(0, 0);
 
 var timeLine = new TimeLine();
 var bgVideo = new BgVideo();
+var rollOver = new RollOver();
 
 var oldCameraValues;
 
@@ -44,19 +47,8 @@ var oldQ = new THREE.Quaternion();
 
 var clock = new THREE.Clock();
 
-// Physics variables
-var gravityConstant = -598;
-var collisionConfiguration;
-var dispatcher;
-var broadphase;
-var solver;
-var softBodySolver;
-var physicsWorld;
-var rigidBodies = [];
-var margin = 0.05;
-var hinge;
-var rope;
-var transformAux1 = new Ammo.btTransform();
+
+var physics;
 
 
 
@@ -166,7 +158,8 @@ export default class Scene {
 			new THREE.BoxGeometry(368, 368, 1),
 			new THREE.MeshBasicMaterial({
 				color: 0x0000ff,
-				wireframe: true
+				wireframe: true,
+				visible: false
 			})
 		);
 		this.scene.add(solid1);
@@ -184,7 +177,8 @@ export default class Scene {
 			new THREE.MeshBasicMaterial({
 				color: 0xff0000,
 				// opacity: 0.1,
-				wireframe: true
+				// wireframe: true
+				visible: false
 			})
 		);
 		this.scene.add(solid2);
@@ -252,9 +246,8 @@ export default class Scene {
 		window.addEventListener('resize', this.onWindowResized);
 		window.addEventListener('mousemove', this.onDocumentMouseMove);
 		this.renderer.domElement.addEventListener('touchmove', this.onDocumentTouchMove);
-		if (window.DeviceOrientationEvent) {
-			window.addEventListener("deviceorientation", this.onOrientation);
-		}
+
+		window.addEventListener('mousedown', this.onMouseDown);
 
 		this.initScene();
 		this.onWindowResized();
@@ -263,9 +256,19 @@ export default class Scene {
 
 	}
 
+	onMouseDown(event) {
+		event.preventDefault();
+		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
+		if (physics) {
+			var rollOverPos = rollOver.getPostion(mouse, That.camera);
+            physics.addBox(rollOverPos);
+		}
+	}
 
 	onDocumentMouseMove(event) {
+		event.preventDefault();
 		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 	}
@@ -283,126 +286,20 @@ export default class Scene {
 		That.renderer.setSize(w, h);
 		That.camera.aspect = w / h;
 		That.camera.updateProjectionMatrix();
-
 	}
-	onOrientation(event) {
-		var _z = event.alpha; //表示设备沿z轴上的旋转角度，范围为0~360。(z轴垂直于平面)
-		var _x = event.beta; //表示设备在x轴上的旋转角度，范围为-180~180。它描述的是设备由前向后旋转的情况。
-		var _y = event.gamma; //表示设备在y轴上的旋转角度，范围为-90~90。它描述的是设备由左向右旋转的情况。
-
-		var _ox = (_y / 90);
-		var _oy = (_x / 180);
-
-		orientation.x = _ox;
-		orientation.y = _oy;
-	}
-
 
 	initScene() {
 
+		//Physics
+		physics = new Physics(solid2Po, solid2Or, solid2Sc);
+		this.scene.add(physics.obj);
 
-
-		// Physics configuration
-		collisionConfiguration = new Ammo.btSoftBodyRigidBodyCollisionConfiguration();
-		dispatcher = new Ammo.btCollisionDispatcher(collisionConfiguration);
-		broadphase = new Ammo.btDbvtBroadphase();
-		solver = new Ammo.btSequentialImpulseConstraintSolver();
-		softBodySolver = new Ammo.btDefaultSoftBodySolver();
-		physicsWorld = new Ammo.btSoftRigidDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration, softBodySolver);
-		physicsWorld.setGravity(new Ammo.btVector3(0, gravityConstant, 0));
-		physicsWorld.getWorldInfo().set_m_gravity(new Ammo.btVector3(0, gravityConstant, 0));
-
-
-
-		var pos = new THREE.Vector3();
-		var quat = new THREE.Quaternion();
-
-		// Ground
-		pos.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
-		quat.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
-		var ground = createParalellepiped(solid2Sc[0] * 3.68, solid2Sc[2] * 3.68, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
-			color: 0xffffff,
-			opacity: 0.2,
-			// wireframe: true
-		}));
-		ground.castShadow = true;
-		ground.receiveShadow = true;
-		That.scene.add(ground);
-
-
-		// Boxs
-
-
-		var _n = 0;
-		addBox();
-
-		function addBox() {
-			for (var i = 0; i < 10; i++) {
-				pos.set(100 * Math.random() - 600, 0, 100 * Math.random() - 1000);
-				quat.set(0, 0, 0, 1);
-				var brick = createParalellepiped(30, 30, 30, 0.5, pos, quat, new THREE.MeshPhongMaterial({
-					color: 0xFFFFFF * Math.random(),
-					// opacity: 0.1,
-					// wireframe: true
-				}));
-
-				brick.castShadow = true;
-				brick.receiveShadow = true;
-				That.scene.add(brick);
-			}
-			_n++;
-
-			if (_n < 10) setTimeout(addBox, 2000);
-		}
-
-
-		function createParalellepiped(sx, sy, sz, mass, pos, quat, material) {
-
-			var threeObject = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz, 1, 1, 1), material);
-			var shape = new Ammo.btBoxShape(new Ammo.btVector3(sx * 0.5, sy * 0.5, sz * 0.5));
-			shape.setMargin(margin);
-
-			createRigidBody(threeObject, shape, mass, pos, quat);
-
-			return threeObject;
-		}
-
-		function createRigidBody(threeObject, physicsShape, mass, pos, quat) {
-
-			threeObject.position.copy(pos);
-			threeObject.quaternion.copy(quat);
-
-			var transform = new Ammo.btTransform();
-			transform.setIdentity();
-			transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z));
-			transform.setRotation(new Ammo.btQuaternion(quat.x, quat.y, quat.z, quat.w));
-			var motionState = new Ammo.btDefaultMotionState(transform);
-
-			var localInertia = new Ammo.btVector3(0, 0, 0);
-			physicsShape.calculateLocalInertia(mass, localInertia);
-
-			var rbInfo = new Ammo.btRigidBodyConstructionInfo(mass, motionState, physicsShape, localInertia);
-			var body = new Ammo.btRigidBody(rbInfo);
-
-			threeObject.userData.physicsBody = body;
-
-
-			if (mass > 0) {
-				rigidBodies.push(threeObject);
-
-				// Disable deactivation
-				body.setActivationState(4);
-			}
-
-			physicsWorld.addRigidBody(body);
-
-		}
-
+		this.scene.add(rollOver.obj);
 
 
 		var geometry = new THREE.SphereGeometry(20, 4, 3);
 
-		for (var i = 0; i < 1000; i++) {
+		for (var i = 0; i < 0; i++) {
 
 			var material = new THREE.MeshBasicMaterial({
 				color: 0xffffff * Math.random(),
@@ -423,13 +320,12 @@ export default class Scene {
 			this.scene.add(mesh);
 		}
 
-
-
 	}
 
 
 	animate() {
 		requestAnimationFrame(this.animate.bind(this));
+
 
 		this.render();
 	}
@@ -438,30 +334,29 @@ export default class Scene {
 	render() {
 		if (this.stats) this.stats.update();
 
+
 		var deltaTime = clock.getDelta();
-		this.updatePhysics(deltaTime);
+		if (physics) physics.update(deltaTime);
+
+  //       // rollOver obj
+		// rollOver.update(mouse, That.camera);
 
 
+
+		if (bgVideo.currentTime == 0 || bgVideo.currentTime > 13.5) bgVideo.currentTime = 4.5;
 
 		var trackTime = bgVideo.currentTime;
 		// var trackTime = 0;
 
+
+
 		// console.log(trackTime);
-
-
-		// videoFrame++;
-		// if (videoFrame > 90) videoFrame = 0;
 
 		var cameraValues = timeLine.getValues(timeLine.cameraScript, trackTime);
 
 
 		if (debug) cameraPerspective.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
 		else this.camera.position.set(-cameraValues.x, -cameraValues.y, cameraValues.z);
-		// this.camera.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
-		// cameraPerspective.rotation.set(cameraValues.rx, cameraValues.ry, cameraValues.rz);
-
-
-		// console.log(Math.floor(cameraValues.ry))
 
 
 		var quaternion = new THREE.Quaternion();
@@ -478,12 +373,17 @@ export default class Scene {
 		q1 = q1.inverse();
 		var q2 = q1.multiply(oldQ);
 
+
+
 		var _able = Math.abs(q2.x) + Math.abs(q2.y) + Math.abs(q2.z) < 0.01;
 		var _t = 1;
+
 
 		if (_able) {
 			if (debug) cameraPerspective.quaternion.slerp(quaternion, _t);
 			else this.camera.quaternion.slerp(quaternion, _t);
+		} else {
+			// console.log(trackTime);
 		}
 
 		oldQ = quaternion.clone();
@@ -494,30 +394,6 @@ export default class Scene {
 
 	}
 
-
-
-	updatePhysics(deltaTime) {
-
-
-		// Step world
-		physicsWorld.stepSimulation(deltaTime, 10);
-
-		// Update rigid bodies
-		for (var i = 0, il = rigidBodies.length; i < il; i++) {
-			var objThree = rigidBodies[i];
-			var objPhys = objThree.userData.physicsBody;
-			var ms = objPhys.getMotionState();
-			if (ms) {
-				ms.getWorldTransform(transformAux1);
-				var p = transformAux1.getOrigin();
-				var q = transformAux1.getRotation();
-				objThree.position.set(p.x(), p.y(), p.z());
-				objThree.quaternion.set(q.x(), q.y(), q.z(), q.w());
-
-			}
-		}
-
-	}
 
 
 }
