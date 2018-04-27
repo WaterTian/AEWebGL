@@ -5,7 +5,6 @@ var raycaster;
 
 export default class rollOver {
 	constructor() {
-		this.clickRequest = false;
 
 		rollOverGeo = new THREE.BoxGeometry(50, 50, 50);
 		rollOverMaterial = new THREE.MeshBasicMaterial({
@@ -28,7 +27,7 @@ export default class rollOver {
 		var quat = new THREE.Quaternion();
 
 		pos.copy(raycaster.ray.direction);
-		pos.multiplyScalar(2000);
+		pos.multiplyScalar(20000);
 		pos.add(raycaster.ray.origin);
 
 		return pos;

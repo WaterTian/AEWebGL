@@ -1,7 +1,7 @@
 const THREE = require('three');
 
 // Physics variables
-var gravityConstant = -1000;
+var gravityConstant = -10000;
 var collisionConfiguration;
 var dispatcher;
 var broadphase;
@@ -19,20 +19,19 @@ var obj;
 var boxArr = [];
 
 
+
 var That;
 
 export default class physicsSense {
-	constructor(solid2Po, solid2Or, solid2Sc) {
+	constructor(groundPo, groundOr, groundSc) {
 
 		That = this;
+
 
 
 		this.obj = new THREE.Object3D();
 
 		obj = this.obj;
-
-
-		this.clickRequest = false;
 
 		// Physics configuration
 		collisionConfiguration = new Ammo.btSoftBodyRigidBodyCollisionConfiguration();
@@ -50,43 +49,64 @@ export default class physicsSense {
 		var quat = new THREE.Quaternion();
 
 		// Ground
-		pos.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
-		quat.setFromEuler(new THREE.Euler(-solid2Or[0] * Math.PI / 180, -solid2Or[1] * Math.PI / 180, solid2Or[2] * Math.PI / 180, 'XYZ'));
-		var ground = this.createParalellepiped(solid2Sc[0] * 3.68, solid2Sc[2] * 3.68, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
-			color: 0xffffff,
+		pos.set(-groundPo[0], -groundPo[1], groundPo[2]);
+		quat.setFromEuler(new THREE.Euler(-groundOr[0] * Math.PI / 180, -groundOr[1] * Math.PI / 180, groundOr[2] * Math.PI / 180, 'XYZ'));
+		var ground = this.createParalellepiped(groundSc[0] * 10, groundSc[1] * 10, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
+			color: 0x00ff00,
 			opacity: 0.2,
-			// wireframe: true,
-			visible:false,
+			wireframe: true,
+			// visible:false,
 		}));
-		// ground.castShadow = true;
-		// ground.receiveShadow = true;
+		ground.castShadow = true;
+		ground.receiveShadow = true;
 
 
 
 	}
 
 
-	addBox(pos) {
+	addBox(raycaster) {
 		var quat = new THREE.Quaternion();
+		var pos = new THREE.Vector3();
 
-		pos.add(new THREE.Vector3(Math.random() * 200, Math.random() * 200, Math.random() * 200));
-
-		var texture = new THREE.TextureLoader().load("assets/box.png");
-
-		for (var i = 0; i < 8; i++) {
-			quat.set(Math.random(), Math.random(), Math.random(), 1);
-			var brick = That.createParalellepiped(Math.random() * 100 + 50, Math.random() * 100 + 50, Math.random() * 100 + 50, 1, pos, quat, new THREE.MeshPhongMaterial({
+		var boxMaterial = new THREE.MeshPhongMaterial({
 				// color: 0xFFFFFF * Math.random(),
-				map: texture,
-				// opacity: 0.1,
-				// wireframe: true
-			}));
+				// wireframe: true,
+				map: new THREE.TextureLoader().load("assets/box.png"),
+			})
 
-			brick.castShadow = true;
-			brick.receiveShadow = true;
+		var boxS = 500;
+
+		for (var i = 0; i < 3; i++) {
+
+	        var sx = Math.random() * boxS + boxS/2;
+	        var sy = Math.random() * boxS + boxS/2;
+	        var sz = Math.random() * boxS + boxS/2;
+			var box = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz, 1, 1, 1), boxMaterial);
+			var boxShape = new Ammo.btBoxShape(new Ammo.btVector3(sx * 0.5, sy * 0.5, sz * 0.5));
+			boxShape.setMargin(margin);
+
+			pos.copy( raycaster.ray.direction );
+			pos.multiplyScalar( 2000 ); // camera distance
+			pos.add( raycaster.ray.origin );
+			quat.set( 0, 0, 0, 1 );
 
 
-			boxArr.push(brick);
+			var mass = 1000; //质量
+			var boxBody = this.createRigidBody( box, boxShape, mass, pos, quat );
+			boxBody.setFriction( 2.5 ); //摩擦力
+            
+
+            // the start Velocity
+			pos.copy( raycaster.ray.direction );
+			pos.multiplyScalar( 5000 );
+			boxBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
+
+
+
+			box.castShadow = true;
+			box.receiveShadow = true;
+			boxArr.push(box);
 		}
 	}
 	updateBoxs(soundValue) {
@@ -144,6 +164,8 @@ export default class physicsSense {
 		}
 
 		physicsWorld.addRigidBody(body);
+
+		return body;
 
 	}
 

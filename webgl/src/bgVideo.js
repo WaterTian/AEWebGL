@@ -1,7 +1,7 @@
 
 
 export default class bgVideo {
-	constructor() {
+	constructor(url) {
 
 
 		this.video = document.getElementById('video');
@@ -11,7 +11,7 @@ export default class bgVideo {
 
 		this.video.loop = true;
 		this.video.muted = true;
-		this.video.src = 'assets/2.mp4';
+		this.video.src = url;
 
 		this.video.play();
 
