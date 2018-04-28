@@ -41,9 +41,6 @@ var transformSolids;
 var widthSolids;
 
 
-var debug = 0;
-
-
 var oldQ = new THREE.Quaternion();
 
 var clock = new THREE.Clock();
@@ -55,6 +52,15 @@ var physics;
 
 ///
 var raycaster = new THREE.Raycaster();
+
+/// 
+var jsonScale = 0.01;
+
+
+
+
+var debug = 1;
+
 
 export default class Scene {
 	constructor() {
@@ -109,26 +115,15 @@ export default class Scene {
 			console.log(layers);
 
 
+
 			transformCamera = layers[1].properties.Transform;
-
-			transformSolids = [];
-			widthSolids = [];
-			for (var i = 2; i < layers.length; i++) {
-				transformSolids.push(layers[i].properties.Transform);
-				widthSolids.push(layers[i].width);
-			}
-
-			console.log(transformSolids);
-
-
-
 			var postionArr = transformCamera.Position.keyframes;
 			var orientationArr = transformCamera.Orientation.keyframes;
 			for (var i = 0; i < postionArr.length; i++) {
 				var v = {
-					x: postionArr[i][1][0],
-					y: postionArr[i][1][1],
-					z: postionArr[i][1][2],
+					x: postionArr[i][1][0]*jsonScale,
+					y: postionArr[i][1][1]*jsonScale,
+					z: postionArr[i][1][2]*jsonScale,
 					rx: orientationArr[i][1][0],
 					ry: orientationArr[i][1][1],
 					rz: orientationArr[i][1][2],
@@ -141,6 +136,37 @@ export default class Scene {
 			}
 
 			console.log(timeLine.cameraScript);
+
+
+
+
+
+			transformSolids = [];
+			widthSolids = [];
+			for (var i = 2; i < layers.length; i++) {
+				widthSolids.push(layers[i].width);
+
+				var v = {
+					x: layers[i].properties.Transform.Position.value[0]*jsonScale,
+					y: layers[i].properties.Transform.Position.value[1]*jsonScale,
+					z: layers[i].properties.Transform.Position.value[2]*jsonScale,
+					rx: layers[i].properties.Transform.Orientation.value[0],
+					ry: layers[i].properties.Transform.Orientation.value[1],
+					rz: layers[i].properties.Transform.Orientation.value[2],
+					sx: layers[i].properties.Transform.Scale.value[0]*jsonScale,
+					sy: layers[i].properties.Transform.Scale.value[1]*jsonScale,
+					sz: layers[i].properties.Transform.Scale.value[2]*jsonScale,
+				};
+				transformSolids.push(v);
+				
+			}
+			console.log(transformSolids);
+
+
+
+
+
+
 
 
 			That.init();
@@ -172,6 +198,7 @@ export default class Scene {
 			})
 		);
 		this.scene.add(cameraPerspective);
+		cameraPerspective.scale.set(jsonScale,jsonScale,jsonScale);
 
 		// cameraPerspective = new THREE.PerspectiveCamera(56.9, 1920 / 1080, 150, 1000);
 		// cameraPerspectiveHelper = new THREE.CameraHelper(cameraPerspective);
@@ -179,10 +206,6 @@ export default class Scene {
 
 
 		for (var i = 0; i < transformSolids.length; i++) {
-			var solidPo = transformSolids[i].Position.value;
-			var solidOr = transformSolids[i].Orientation.value;
-			var solidSc = transformSolids[i].Scale.value;
-
 			var solid = new THREE.Mesh(
 				new THREE.BoxGeometry(widthSolids[i], widthSolids[i], 1),
 				new THREE.MeshBasicMaterial({
@@ -192,59 +215,47 @@ export default class Scene {
 				})
 			);
 			this.scene.add(solid);
-			solid.position.set(-solidPo[0], -solidPo[1], solidPo[2]);
-			solid.scale.set(solidSc[0] / 100, solidSc[1] / 100, solidSc[2] / 100);
+			solid.position.set(-transformSolids[i].x, -transformSolids[i].y, transformSolids[i].z);
+			solid.scale.set(transformSolids[i].sx / 100, transformSolids[i].sy / 100, transformSolids[i].sz / 100);
 
 			var quaternion = new THREE.Quaternion();
-			quaternion.setFromEuler(new THREE.Euler(-solidOr[0] * Math.PI / 180, -solidOr[1] * Math.PI / 180, solidOr[2] * Math.PI / 180, 'XYZ'));
+			quaternion.setFromEuler(new THREE.Euler(-transformSolids[i].rx * Math.PI / 180, -transformSolids[i].ry * Math.PI / 180, transformSolids[i].rz * Math.PI / 180, 'XYZ'));
 			solid.rotation.setFromQuaternion(quaternion);
 
 		}
 
 
 
-		var groundPo = transformSolids[0].Position.value;
-		var groundOr = transformSolids[0].Orientation.value;
-		var groundSc = transformSolids[0].Scale.value;
+		var groundTransform = transformSolids[0];
 
 
-		// //////
-		// var ground = new THREE.Mesh(
-		// 	new THREE.BoxGeometry(widthSolids[0], widthSolids[0], 1),
-		// 	new THREE.MeshBasicMaterial({
-		// 		color: 0xffffff,
-		// 		opacity: 0.2,
-		// 		// wireframe: true,
-		// 		// visible: false
-		// 	})
-		// );
-		// this.scene.add(ground);
-		// ground.position.set(-groundPo[0], -groundPo[1], groundPo[2]);
-		// ground.scale.set(groundSc[0] / 100, groundSc[1] / 100, groundSc[2] / 100);
-		// var quaternion = new THREE.Quaternion();
-		// quaternion.setFromEuler(new THREE.Euler(-groundOr[0] * Math.PI / 180, -groundOr[1] * Math.PI / 180, groundOr[2] * Math.PI / 180, 'XYZ'));
-		// ground.rotation.setFromQuaternion(quaternion);
+		//////
+		var ground = new THREE.Mesh(
+			new THREE.BoxGeometry(widthSolids[0], widthSolids[0], 1),
+			new THREE.MeshPhongMaterial({
+				color: 0xffffff,
+				opacity: 0.2,
+				// wireframe: true,
+				// visible: false
+			})
+		);
+		this.scene.add(ground);
+		ground.position.set(-groundTransform.x, -groundTransform.y,groundTransform.z);
+		ground.scale.set(groundTransform.sx / 100, groundTransform.sy / 100, groundTransform.sz / 100);
+		var quaternion = new THREE.Quaternion();
+		quaternion.setFromEuler(new THREE.Euler(-groundTransform.rx * Math.PI / 180, -groundTransform.ry * Math.PI / 180, groundTransform.rz * Math.PI / 180, 'XYZ'));
+		ground.rotation.setFromQuaternion(quaternion);
 
-		// ground.castShadow = true;
-		// ground.receiveShadow = true;
-		// //////
+		ground.receiveShadow = true;
+		//////
 
 
 
 
 
 		//Physics
-		physics = new Physics(groundPo, groundOr, groundSc);
+		physics = new Physics(groundTransform,jsonScale);
 		this.scene.add(physics.obj);
-
-
-
-		// var helper = new THREE.GridHelper(10000, 100);
-		// helper.position.set(-solid2Po[0], -solid2Po[1], solid2Po[2]);
-		// helper.rotation.y = -solid2.rotation.z;
-		// helper.material.opacity = 0.5;
-		// helper.material.transparent = true;
-		// this.scene.add(helper);
 
 
 
@@ -252,22 +263,24 @@ export default class Scene {
 		var ambientLight = new THREE.AmbientLight(0x666666);
 		this.scene.add(ambientLight);
 
-
 		var dirLight = new THREE.DirectionalLight(0xffffff, 1);
 		// dirLight.color.setHSL(0.1, 1, 0.95);
 		dirLight.position.set(-1, 1.75, 1);
-		dirLight.position.multiplyScalar(30);
+		dirLight.position.multiplyScalar(200);
 		this.scene.add(dirLight);
 		dirLight.castShadow = true;
-		dirLight.shadow.mapSize.width = 2048;
-		dirLight.shadow.mapSize.height = 2048;
-		var d = 10000;
+		dirLight.shadow.mapSize.width = 4096;
+		dirLight.shadow.mapSize.height = 4096;
+		var d = 200;
 		dirLight.shadow.camera.left = -d ;
 		dirLight.shadow.camera.right = d;
 		dirLight.shadow.camera.top = d;
 		dirLight.shadow.camera.bottom = -d;
-		dirLight.shadow.camera.far = 10000;
-		dirLight.shadow.bias = -0.01;
+		dirLight.shadow.camera.far = 800;
+		dirLight.shadow.bias = -0.0001;
+
+		///
+		this.scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
 
 
@@ -275,8 +288,9 @@ export default class Scene {
 		this.renderer = new THREE.WebGLRenderer({
 			antialias: true,
 			premultipliedAlpha: false,
-			alpha: true
+			// alpha: true
 		});
+
 
 
 		// this.renderer.setClearColor(0x000, 0.0);

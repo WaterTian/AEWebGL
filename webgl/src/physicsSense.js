@@ -1,7 +1,7 @@
 const THREE = require('three');
 
 // Physics variables
-var gravityConstant = -10000;
+var gravityConstant;
 var collisionConfiguration;
 var dispatcher;
 var broadphase;
@@ -23,10 +23,13 @@ var boxArr = [];
 var That;
 
 export default class physicsSense {
-	constructor(groundPo, groundOr, groundSc) {
+	constructor(groundTransform,jsonScale) {
 
 		That = this;
 
+		this.jsonScale = jsonScale;
+
+		gravityConstant =  -10000*this.jsonScale; // 万有引力
 
 
 		this.obj = new THREE.Object3D();
@@ -49,16 +52,15 @@ export default class physicsSense {
 		var quat = new THREE.Quaternion();
 
 		// Ground
-		pos.set(-groundPo[0], -groundPo[1], groundPo[2]);
-		quat.setFromEuler(new THREE.Euler(-groundOr[0] * Math.PI / 180, -groundOr[1] * Math.PI / 180, groundOr[2] * Math.PI / 180, 'XYZ'));
-		var ground = this.createParalellepiped(groundSc[0] * 10, groundSc[1] * 10, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
+		pos.set(-groundTransform.x, -groundTransform.y, groundTransform.z);
+		quat.setFromEuler(new THREE.Euler(-groundTransform.rx * Math.PI / 180, -groundTransform.ry * Math.PI / 180, groundTransform.rz * Math.PI / 180, 'XYZ'));
+		var ground = this.createParalellepiped(groundTransform.sx * 10, groundTransform.sy * 10, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
 			color: 0x00ff00,
 			opacity: 0.2,
 			wireframe: true,
-			// visible:false,
+			visible:false,
 		}));
-		ground.castShadow = true;
-		ground.receiveShadow = true;
+		// ground.receiveShadow = true;
 
 
 
@@ -75,7 +77,7 @@ export default class physicsSense {
 				map: new THREE.TextureLoader().load("assets/box.png"),
 			})
 
-		var boxS = 500;
+		var boxS = 500*this.jsonScale;
 
 		for (var i = 0; i < 3; i++) {
 
@@ -87,19 +89,19 @@ export default class physicsSense {
 			boxShape.setMargin(margin);
 
 			pos.copy( raycaster.ray.direction );
-			pos.multiplyScalar( 2000 ); // camera distance
+			pos.multiplyScalar( 2000*this.jsonScale ); // camera distance
 			pos.add( raycaster.ray.origin );
 			quat.set( 0, 0, 0, 1 );
 
 
-			var mass = 1000; //质量
+			var mass = 10000; //质量
 			var boxBody = this.createRigidBody( box, boxShape, mass, pos, quat );
 			boxBody.setFriction( 2.5 ); //摩擦力
             
 
             // the start Velocity
 			pos.copy( raycaster.ray.direction );
-			pos.multiplyScalar( 5000 );
+			pos.multiplyScalar( 5000*this.jsonScale );
 			boxBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
 
 
