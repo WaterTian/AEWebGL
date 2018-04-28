@@ -10,8 +10,11 @@
             body {
                 font-family: Monospace;
                 background-color: #000000;
-                margin: 0px;
                 overflow: hidden;
+            }
+            * {
+                margin: 0;
+                padding: 0; 
             }
             .white {
                 fill: white;
@@ -41,9 +44,105 @@
                 margin: 0px;
                 cursor: pointer;
             }
+
+            .play{
+                position: absolute;
+                z-index: 9;
+                width: 100%;
+                height: 100%;
+                text-align: center; 
+                opacity: 1; 
+                transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);
+            }
+
+            .play-button {
+              margin-top: 20%;
+              margin-left: 5%;
+              margin-right: 5%;
+              color: white;
+
+              cursor: pointer;
+              border: 3px solid #FFF;
+              display: inline-block;
+              padding: 15px 24px 15px 24px;
+              font-family: 'proxima-nova', sans-serif;
+              font-size: 17px;
+
+              -o-transform: scale(0.85, 0.85);
+              -ms-transform: scale(0.85, 0.85);
+              -moz-transform: scale(0.85, 0.85);
+              -webkit-transform: scale(0.85, 0.85);
+              transform: scale(0.85, 0.85);
+
+              -webkit-transition: all 0.1s ease-out;
+              -moz-transition: all 0.1s ease-out;
+              -ms-transition: all 0.1s ease-out;
+              -o-transition: all 0.1s ease-out;
+              transition: all 0.1s ease-out;
+            }
+
+            .play-button:hover {
+              
+              opacity: 1;
+              -o-transform: scale(1, 1);
+              -ms-transform: scale(1, 1);
+              -moz-transform: scale(1, 1);
+              -webkit-transform: scale(1, 1);
+              transform: scale(1, 1);
+              -webkit-transition: all 0.1s ease-out;
+              -moz-transition: all 0.1s ease-out;
+              -ms-transition: all 0.1s ease-out;
+              -o-transition: all 0.1s ease-out;
+              transition: all 0.1s ease-out;
+            }
+
+
+            /*loading*/
+            .cssload-container {
+                position: absolute;
+                z-index: 11;
+                width: 100%;
+                height: 49px;
+                top:40%;
+                text-align: center;
+            }
+            .cssload-speeding-wheel {
+                width: 49px;
+                height: 49px;
+                margin: 0 auto;
+                border: 3px solid rgb(255,255,255);
+                border-radius: 50%;
+                border-left-color: transparent;
+                border-right-color: transparent;
+                animation: cssload-spin 575ms infinite linear;
+                    -o-animation: cssload-spin 575ms infinite linear;
+                    -ms-animation: cssload-spin 575ms infinite linear;
+                    -webkit-animation: cssload-spin 575ms infinite linear;
+                    -moz-animation: cssload-spin 575ms infinite linear;
+            }
+            @keyframes cssload-spin {
+                100%{ transform: rotate(360deg); transform: rotate(360deg); }
+            }
+            @-o-keyframes cssload-spin {
+                100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+            }
+            @-ms-keyframes cssload-spin {
+                100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+            }
+            @-webkit-keyframes cssload-spin {
+                100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+            }
+            @-moz-keyframes cssload-spin {
+                100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+            }
+
         </style>
     </head>
     <body>
+        <div id="loading" class="cssload-container">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
+
         <div class="logo" id="logo">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.1 29.4" style="cursor: pointer;enable-background:new 0 0 40.1 29.4;" xml:space="preserve">
                 <path class="white" d="M15.1,29.4c-5,0-7.8-2.6-7.8-7.2v-2.3c0-2.8,0.9-4.9,3.1-6c-2.1-1-3.1-3-3.1-5.8V7.2c0-4.6,2.7-7.2,7.8-7.2
@@ -57,8 +156,20 @@
             </svg>
         </div>
 
+        <div class="play">
+            <div class="play-button" id = "btn1">
+              <div>VIEW DEMO1</div>
+            </div>
+            <div class="play-button" id = "btn2">
+              <div>VIEW DEMO2</div>
+            </div>
+        </div>
+
+
         <video id="video" class="video"></video>
         <div id="webglContainer" class="webglContainer"></div>
+
+
         <script src="dist/ammo.js"></script>
         <script src="dist/app.js?v=0.0.1"></script>
 

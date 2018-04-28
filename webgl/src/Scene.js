@@ -7,23 +7,20 @@ const dat = require('dat-gui');
 const VConsole = require('vconsole');
 
 
-const Tone = require('tone');
-
-
+// const Tone = require('tone');
 const isMobile = require('./libs/isMobile.min.js');
 
 const TimeLine = require('./TimeLine').default;
 const BgVideo = require('./bgVideo').default;
-const RollOver = require('./rollOver').default;
 const Physics = require('./physicsSense').default;
 
 window.floatType = isMobile.any ? THREE.HalfFloatType : THREE.FloatType;
 
 var That;
 
-var container = document.getElementById('webglContainer');
+var loading = document.getElementById('loading');
 
-var logoDiv;
+var container = document.getElementById('webglContainer');
 
 var mouse = new THREE.Vector2(0, 0);
 
@@ -47,19 +44,22 @@ var clock = new THREE.Clock();
 
 
 var timeLine = new TimeLine();
-var bgVideo = new BgVideo('assets/2.mp4');
+var bgVideo;
 var physics;
+
+
+// ty2 ty3
+var lightPostion;
 
 ///
 var raycaster = new THREE.Raycaster();
 
 /// 
-var jsonScale = 0.01;
+var jsonScale = .1;
 
+var debug = 0;
 
-
-
-var debug = 1;
+var DEMO_NUM = 2;
 
 
 export default class Scene {
@@ -69,24 +69,42 @@ export default class Scene {
 		// this.stats = new Stats();
 		// document.body.appendChild(this.stats.dom);
 
+		loading.style.display = "none";
+
 
 
 		That = this;
-		logoDiv = document.getElementById('logo');
-		logoDiv.addEventListener('touchmove', EventPreventDefault);
+		document.getElementById('logo').addEventListener('touchmove', EventPreventDefault);
 
 		function EventPreventDefault(event) {
 			event.preventDefault();
 		}
 
+		document.getElementById('btn1').addEventListener('click', function() {
+			DEMO_NUM = 2;
+			bgVideo = new BgVideo('assets/' + DEMO_NUM + '.mp4');
+			// bgVideo = new BgVideo('http://1251453141.vod2.myqcloud.com/484affa2vodtransgzp1251453141/dc8afa6e7447398155811716039/v.f30.mp4');
+			That.loadJson();
+			document.querySelector(".play").style.display = "none";
+
+			lightPostion = new THREE.Vector3(-1, 1.3, 2);
+		});
+		document.getElementById('btn2').addEventListener('click', function() {
+			DEMO_NUM = 3;
+			bgVideo = new BgVideo('assets/' + DEMO_NUM + '.mp4');
+			// bgVideo = new BgVideo('http://1251453141.vod2.myqcloud.com/484affa2vodtransgzp1251453141/06e1fcb67447398155808574183/v.f30.mp4');
+			That.loadJson();
+			document.querySelector(".play").style.display = "none";
+
+			lightPostion = new THREE.Vector3(-2, 1.3, -2);
+		});
+
 		// this.loadSound();
-		this.loadJson();
 
 	}
 
 
 	loadSound() {
-
 		soundPlayer = new Tone.Player("assets/bg2.mp3", function() {
 			That.loadJson;
 			soundPlayer.start();
@@ -105,11 +123,12 @@ export default class Scene {
 
 
 	loadJson() {
+		var jsonURL = 'assets/output' + DEMO_NUM + '.json';
 
-
+		loading.style.display = "block";
 
 		var fl = new THREE.FileLoader();
-		fl.load('assets/output2.json', function(data) {
+		fl.load(jsonURL, function(data) {
 			var jsonObj = JSON.parse(data);
 			var layers = jsonObj.project.items[jsonObj.project.numItems - 1].layers;
 			console.log(layers);
@@ -121,9 +140,9 @@ export default class Scene {
 			var orientationArr = transformCamera.Orientation.keyframes;
 			for (var i = 0; i < postionArr.length; i++) {
 				var v = {
-					x: postionArr[i][1][0]*jsonScale,
-					y: postionArr[i][1][1]*jsonScale,
-					z: postionArr[i][1][2]*jsonScale,
+					x: postionArr[i][1][0] * jsonScale,
+					y: postionArr[i][1][1] * jsonScale,
+					z: postionArr[i][1][2] * jsonScale,
 					rx: orientationArr[i][1][0],
 					ry: orientationArr[i][1][1],
 					rz: orientationArr[i][1][2],
@@ -139,33 +158,26 @@ export default class Scene {
 
 
 
-
-
 			transformSolids = [];
 			widthSolids = [];
 			for (var i = 2; i < layers.length; i++) {
 				widthSolids.push(layers[i].width);
 
 				var v = {
-					x: layers[i].properties.Transform.Position.value[0]*jsonScale,
-					y: layers[i].properties.Transform.Position.value[1]*jsonScale,
-					z: layers[i].properties.Transform.Position.value[2]*jsonScale,
+					x: layers[i].properties.Transform.Position.value[0] * jsonScale,
+					y: layers[i].properties.Transform.Position.value[1] * jsonScale,
+					z: layers[i].properties.Transform.Position.value[2] * jsonScale,
 					rx: layers[i].properties.Transform.Orientation.value[0],
 					ry: layers[i].properties.Transform.Orientation.value[1],
 					rz: layers[i].properties.Transform.Orientation.value[2],
-					sx: layers[i].properties.Transform.Scale.value[0]*jsonScale,
-					sy: layers[i].properties.Transform.Scale.value[1]*jsonScale,
-					sz: layers[i].properties.Transform.Scale.value[2]*jsonScale,
+					sx: layers[i].properties.Transform.Scale.value[0] * jsonScale,
+					sy: layers[i].properties.Transform.Scale.value[1] * jsonScale,
+					sz: layers[i].properties.Transform.Scale.value[2] * jsonScale,
 				};
 				transformSolids.push(v);
-				
+
 			}
 			console.log(transformSolids);
-
-
-
-
-
 
 
 
@@ -198,7 +210,7 @@ export default class Scene {
 			})
 		);
 		this.scene.add(cameraPerspective);
-		cameraPerspective.scale.set(jsonScale,jsonScale,jsonScale);
+		cameraPerspective.scale.set(jsonScale, jsonScale, jsonScale);
 
 		// cameraPerspective = new THREE.PerspectiveCamera(56.9, 1920 / 1080, 150, 1000);
 		// cameraPerspectiveHelper = new THREE.CameraHelper(cameraPerspective);
@@ -209,9 +221,10 @@ export default class Scene {
 			var solid = new THREE.Mesh(
 				new THREE.BoxGeometry(widthSolids[i], widthSolids[i], 1),
 				new THREE.MeshBasicMaterial({
-					color: 0x0000ff,
+					color: 0xffffff * Math.random(),
+					opacity: 0.6,
 					wireframe: true,
-					// visible: false
+					visible: false
 				})
 			);
 			this.scene.add(solid);
@@ -232,15 +245,12 @@ export default class Scene {
 		//////
 		var ground = new THREE.Mesh(
 			new THREE.BoxGeometry(widthSolids[0], widthSolids[0], 1),
-			new THREE.MeshPhongMaterial({
-				color: 0xffffff,
-				opacity: 0.2,
-				// wireframe: true,
-				// visible: false
+			new THREE.ShadowMaterial({
+				opacity: 0.4,
 			})
 		);
 		this.scene.add(ground);
-		ground.position.set(-groundTransform.x, -groundTransform.y,groundTransform.z);
+		ground.position.set(-groundTransform.x, -groundTransform.y, groundTransform.z);
 		ground.scale.set(groundTransform.sx / 100, groundTransform.sy / 100, groundTransform.sz / 100);
 		var quaternion = new THREE.Quaternion();
 		quaternion.setFromEuler(new THREE.Euler(-groundTransform.rx * Math.PI / 180, -groundTransform.ry * Math.PI / 180, groundTransform.rz * Math.PI / 180, 'XYZ'));
@@ -251,44 +261,42 @@ export default class Scene {
 
 
 
-
-
 		//Physics
-		physics = new Physics(groundTransform,jsonScale);
+		physics = new Physics(groundTransform, jsonScale);
 		this.scene.add(physics.obj);
 
 
 
-
+		//lights
 		var ambientLight = new THREE.AmbientLight(0x666666);
 		this.scene.add(ambientLight);
-
 		var dirLight = new THREE.DirectionalLight(0xffffff, 1);
 		// dirLight.color.setHSL(0.1, 1, 0.95);
-		dirLight.position.set(-1, 1.75, 1);
-		dirLight.position.multiplyScalar(200);
+		dirLight.position.copy(lightPostion);
+		dirLight.position.multiplyScalar(10000 * jsonScale);
+		dirLight.target = ground;
+
 		this.scene.add(dirLight);
 		dirLight.castShadow = true;
-		dirLight.shadow.mapSize.width = 4096;
-		dirLight.shadow.mapSize.height = 4096;
-		var d = 200;
-		dirLight.shadow.camera.left = -d ;
+		dirLight.shadow.mapSize.width = 2048;
+		dirLight.shadow.mapSize.height = 2048;
+		var d = 15000 * jsonScale;
+		dirLight.shadow.camera.left = -d;
 		dirLight.shadow.camera.right = d;
 		dirLight.shadow.camera.top = d;
 		dirLight.shadow.camera.bottom = -d;
-		dirLight.shadow.camera.far = 800;
+		dirLight.shadow.camera.far = 40000 * jsonScale;
 		dirLight.shadow.bias = -0.0001;
 
-		///
-		this.scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
-
+		// ///
+		if (debug) this.scene.add(new THREE.CameraHelper(dirLight.shadow.camera));
 
 
 
 		this.renderer = new THREE.WebGLRenderer({
 			antialias: true,
 			premultipliedAlpha: false,
-			// alpha: true
+			alpha: !debug
 		});
 
 
@@ -296,7 +304,7 @@ export default class Scene {
 		// this.renderer.setClearColor(0x000, 0.0);
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.shadowMap.enabled = true;
-		// this.renderer.shadowMap.type = THREE.PCFShadowMap;
+		this.renderer.shadowMap.type = THREE.PCFShadowMap;
 
 
 		container.appendChild(this.renderer.domElement);
@@ -309,12 +317,12 @@ export default class Scene {
 
 
 
-
 		window.addEventListener('resize', this.onWindowResized);
-		window.addEventListener('mousemove', this.onDocumentMouseMove);
+		this.renderer.domElement.addEventListener('mousemove', this.onDocumentMouseMove);
 		this.renderer.domElement.addEventListener('touchmove', this.onDocumentTouchMove);
 
-		window.addEventListener('mousedown', this.onMouseDown);
+		this.renderer.domElement.addEventListener('mousedown', this.onMouseDown);
+		this.renderer.domElement.addEventListener('touchstart', this.onDocumentTouchStart);
 
 		this.initScene();
 		this.onWindowResized();
@@ -328,6 +336,20 @@ export default class Scene {
 		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
+		That.addBox();
+	}
+	onDocumentTouchStart(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		mouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+		mouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+
+		That.addBox();
+		bgVideo.play();
+	}
+
+
+	addBox() {
 		if (physics) {
 			raycaster.setFromCamera(mouse, That.camera);
 			physics.addBox(raycaster);
@@ -406,12 +428,14 @@ export default class Scene {
 
 
 
-
-
 		// if (bgVideo.currentTime == 0 || bgVideo.currentTime > 12.5) bgVideo.currentTime = 4.5;
 
 		var trackTime = bgVideo.currentTime;
 		// var trackTime = 0;
+
+
+		// removeLoading
+		if (trackTime > 0) loading.style.display = "none";
 
 
 

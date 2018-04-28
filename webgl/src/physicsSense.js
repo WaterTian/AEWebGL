@@ -17,19 +17,20 @@ var transformAux1 = new Ammo.btTransform();
 var obj;
 
 var boxArr = [];
+var boxBodyArr = [];
 
 
 
 var That;
 
 export default class physicsSense {
-	constructor(groundTransform,jsonScale) {
+	constructor(groundTransform, jsonScale) {
 
 		That = this;
 
 		this.jsonScale = jsonScale;
 
-		gravityConstant =  -10000*this.jsonScale; // 万有引力
+		gravityConstant = -10000 * this.jsonScale; // 万有引力
 
 
 		this.obj = new THREE.Object3D();
@@ -54,11 +55,11 @@ export default class physicsSense {
 		// Ground
 		pos.set(-groundTransform.x, -groundTransform.y, groundTransform.z);
 		quat.setFromEuler(new THREE.Euler(-groundTransform.rx * Math.PI / 180, -groundTransform.ry * Math.PI / 180, groundTransform.rz * Math.PI / 180, 'XYZ'));
-		var ground = this.createParalellepiped(groundTransform.sx * 10, groundTransform.sy * 10, 1, 0, pos, quat, new THREE.MeshPhongMaterial({
+		var ground = this.createParalellepiped(groundTransform.sx * 10, groundTransform.sy * 10, jsonScale, 0, pos, quat, new THREE.MeshPhongMaterial({
 			color: 0x00ff00,
 			opacity: 0.2,
 			wireframe: true,
-			visible:false,
+			visible: false,
 		}));
 		// ground.receiveShadow = true;
 
@@ -72,45 +73,62 @@ export default class physicsSense {
 		var pos = new THREE.Vector3();
 
 		var boxMaterial = new THREE.MeshPhongMaterial({
-				// color: 0xFFFFFF * Math.random(),
-				// wireframe: true,
-				map: new THREE.TextureLoader().load("assets/box.png"),
-			})
+			// color: 0xFFFFFF * Math.random(),
+			// wireframe: true,
+			map: new THREE.TextureLoader().load("assets/box.png"),
+		})
 
-		var boxS = 500*this.jsonScale;
+		var boxS = 500 * this.jsonScale;
 
 		for (var i = 0; i < 3; i++) {
 
-	        var sx = Math.random() * boxS + boxS/2;
-	        var sy = Math.random() * boxS + boxS/2;
-	        var sz = Math.random() * boxS + boxS/2;
+			var sx = Math.random() * boxS + boxS / 2;
+			var sy = Math.random() * boxS + boxS / 2;
+			var sz = Math.random() * boxS + boxS / 2;
 			var box = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz, 1, 1, 1), boxMaterial);
 			var boxShape = new Ammo.btBoxShape(new Ammo.btVector3(sx * 0.5, sy * 0.5, sz * 0.5));
 			boxShape.setMargin(margin);
 
-			pos.copy( raycaster.ray.direction );
-			pos.multiplyScalar( 2000*this.jsonScale ); // camera distance
-			pos.add( raycaster.ray.origin );
-			quat.set( 0, 0, 0, 1 );
+			pos.copy(raycaster.ray.direction);
+			pos.multiplyScalar(3000 * this.jsonScale); // camera distance
+			pos.add(raycaster.ray.origin);
+			quat.set(0, 0, 0, 1);
 
 
 			var mass = 10000; //质量
-			var boxBody = this.createRigidBody( box, boxShape, mass, pos, quat );
-			boxBody.setFriction( 2.5 ); //摩擦力
-            
+			var boxBody = this.createRigidBody(box, boxShape, mass, pos, quat);
+			boxBody.setFriction(2.5); //摩擦力
 
-            // the start Velocity
-			pos.copy( raycaster.ray.direction );
-			pos.multiplyScalar( 5000*this.jsonScale );
-			boxBody.setLinearVelocity( new Ammo.btVector3( pos.x, pos.y, pos.z ) );
+
+			// the start Velocity
+			pos.copy(raycaster.ray.direction);
+			pos.multiplyScalar(5000 * this.jsonScale);
+			boxBody.setLinearVelocity(new Ammo.btVector3(pos.x, pos.y, pos.z));
 
 
 
 			box.castShadow = true;
 			box.receiveShadow = true;
 			boxArr.push(box);
+			boxBodyArr.push(boxBody);
 		}
+
+		this.removeBox();
 	}
+
+	removeBox() {
+		var boxMaxNum = 60;
+		for (var i = 0; i < boxArr.length - boxMaxNum; i++) {
+			////
+			obj.remove(boxArr[i]);
+			boxArr.splice(0,1);
+
+			physicsWorld.removeRigidBody(boxBodyArr[i]);
+			boxBodyArr.splice(0,1);
+		}
+
+	}
+
 	updateBoxs(soundValue) {
 		// for (var i = 0; i < boxArr.length; i++) {
 		// 	if (!soundValue[i]) return;
