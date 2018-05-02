@@ -98,18 +98,16 @@
 
 
             /*loading*/
-            .cssload-container {
+            .cssload{
                 position: absolute;
                 z-index: 11;
-                width: 100%;
-                height: 49px;
-                top:40%;
+                left:50%;
+                top:50%;
+                width: 52px;
+                height: 52px;
+                margin-top: -26px;
+                margin-left: -26px;
                 text-align: center;
-            }
-            .cssload-speeding-wheel {
-                width: 49px;
-                height: 49px;
-                margin: 0 auto;
                 border: 3px solid rgb(255,255,255);
                 border-radius: 50%;
                 border-left-color: transparent;
@@ -136,12 +134,143 @@
                 100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
             }
 
+
+            /*click-tip*/
+            .click-tip {
+              pointer-events: none;
+              display: none;
+              position: absolute;
+              z-index: 12;
+              left:50%;
+              width: 52px;
+              height: 52px;
+              line-height: 52px;
+              margin-top: -26px;
+              margin-left: -26px;
+              box-sizing: border-box;
+              text-align: center;
+              text-transform: uppercase;
+                -o-text-transform: uppercase;
+                -ms-text-transform: uppercase;
+                -webkit-text-transform: uppercase;
+                -moz-text-transform: uppercase;
+            }
+
+            .click-tip:before,
+            .click-tip:after {
+              opacity: 0;
+              box-sizing: border-box;
+                -o-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+              content: "\0020";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border-radius: 35px;
+              border: 2px solid rgb(255,255,255);
+              box-shadow: 0 0 17px rgb(255,255,255), inset 0 0 17px rgb(255,255,255);
+                -o-box-shadow: 0 0 17px rgb(255,255,255), inset 0 0 17px rgb(255,255,255);
+                -ms-box-shadow: 0 0 17px rgb(255,255,255), inset 0 0 17px rgb(255,255,255);
+                -webkit-box-shadow: 0 0 17px rgb(255,255,255), inset 0 0 17px rgb(255,255,255);
+                -moz-box-shadow: 0 0 17px rgb(255,255,255), inset 0 0 17px rgb(255,255,255);
+            }
+            .click-tip:before {
+              z-index: 2;
+              animation: tip-animation 1.5s infinite;
+                -o-animation: tip-animation 1.5s infinite;
+                -ms-animation: tip-animation 1.5s infinite;
+                -webkit-animation: tip-animation 1.5s infinite;
+                -moz-animation: tip-animation 1.5s infinite;
+            }
+            .click-tip:after {
+              z-index: 1;
+              animation: tip-animation 1.5s infinite 0.75s;
+                -o-animation: tip-animation 1.5s infinite 0.75s;
+                -ms-animation: tip-animation 1.5s infinite 0.75s;
+                -webkit-animation: tip-animation 1.5s infinite 0.75s;
+                -moz-animation: tip-animation 1.5s infinite 0.75s;
+            }
+
+            @keyframes tip-animation {
+              0% {
+                transform: scale(0);
+                opacity: 0;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                transform: scale(1);
+                opacity: 0;
+              }
+            }
+
+            @-o-keyframes tip-animation {
+              0% {
+                -o-transform: scale(0);
+                opacity: 0;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                -o-transform: scale(1);
+                opacity: 0;
+              }
+            }
+
+            @-ms-keyframes tip-animation {
+              0% {
+                -ms-transform: scale(0);
+                opacity: 0;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                -ms-transform: scale(1);
+                opacity: 0;
+              }
+            }
+
+            @-webkit-keyframes tip-animation {
+              0% {
+                -webkit-transform: scale(0);
+                opacity: 0;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                -webkit-transform: scale(1);
+                opacity: 0;
+              }
+            }
+
+            @-moz-keyframes tip-animation {
+              0% {
+                -moz-transform: scale(0);
+                opacity: 0;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                -moz-transform: scale(1);
+                opacity: 0;
+              }
+            }
+
+
         </style>
     </head>
     <body>
-        <div id="loading" class="cssload-container">
-            <div class="cssload-speeding-wheel"></div>
-        </div>
+        <div id="loading" class="cssload"></div>
+        <div id="tip" class="click-tip"></div>
 
         <div class="logo" id="logo">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.1 29.4" style="cursor: pointer;enable-background:new 0 0 40.1 29.4;" xml:space="preserve">
@@ -168,6 +297,9 @@
 
         <video id="video" class="video"></video>
         <div id="webglContainer" class="webglContainer"></div>
+
+
+
 
 
         <script src="dist/ammo.js"></script>

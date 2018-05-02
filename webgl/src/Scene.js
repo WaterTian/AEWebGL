@@ -19,6 +19,7 @@ window.floatType = isMobile.any ? THREE.HalfFloatType : THREE.FloatType;
 var That;
 
 var loading = document.getElementById('loading');
+var tip = document.getElementById('tip');
 
 var container = document.getElementById('webglContainer');
 
@@ -88,6 +89,9 @@ export default class Scene {
 			document.querySelector(".play").style.display = "none";
 
 			lightPostion = new THREE.Vector3(-1, 1.3, 2);
+
+		    tip.style.display = "block";
+		    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
 		});
 		document.getElementById('btn2').addEventListener('click', function() {
 			DEMO_NUM = 3;
@@ -97,6 +101,9 @@ export default class Scene {
 			document.querySelector(".play").style.display = "none";
 
 			lightPostion = new THREE.Vector3(-2, 1.3, -2);
+
+		    tip.style.display = "block";
+		    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
 		});
 
 		// this.loadSound();
@@ -124,8 +131,6 @@ export default class Scene {
 
 	loadJson() {
 		var jsonURL = 'assets/output' + DEMO_NUM + '.json';
-
-		loading.style.display = "block";
 
 		var fl = new THREE.FileLoader();
 		fl.load(jsonURL, function(data) {
@@ -337,6 +342,7 @@ export default class Scene {
 		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
 		That.addBox();
+		bgVideo.play();
 	}
 	onDocumentTouchStart(event) {
 		event.preventDefault();
@@ -353,6 +359,8 @@ export default class Scene {
 		if (physics) {
 			raycaster.setFromCamera(mouse, That.camera);
 			physics.addBox(raycaster);
+
+			tip.style.display = "none";
 		}
 	}
 
@@ -432,11 +440,6 @@ export default class Scene {
 
 		var trackTime = bgVideo.currentTime;
 		// var trackTime = 0;
-
-
-		// removeLoading
-		if (trackTime > 0) loading.style.display = "none";
-
 
 
 		// console.log(trackTime);
