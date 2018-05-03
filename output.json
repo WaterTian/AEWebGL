@@ -11,7 +11,7 @@
   "isProfessionalVersion": true,
   "isoLanguage": "en_US",
   "language": 1612,
-  "memoryInUse": 912711680,
+  "memoryInUse": 2205237248,
   "saveProjectOnCrash": true,
   "version": "14.0.0x207",
   "project": {
@@ -21,7 +21,7 @@
     "framesCountType": 2614,
     "gpuAccelType": 1815,
     "numItems": 12,
-    "revision": 964,
+    "revision": 2327,
     "timeDisplayType": 2013,
     "toolType": 8812,
     "items": [
@@ -191,6 +191,7 @@
         "pixelAspect": 1,
         "proxySource": null,
         "typeName": "Footage",
+        "usedIn": [],
         "width": 720,
         "file": null,
         "mainSource": {
@@ -478,6 +479,7 @@
             "pixelAspect": 1,
             "proxySource": null,
             "typeName": "Footage",
+            "usedIn": [],
             "width": 720,
             "file": null,
             "mainSource": {
@@ -643,7 +645,7 @@
         "motionBlurAdaptiveSampleLimit": 128,
         "motionBlurSamplesPerFrame": 16,
         "name": "3",
-        "numLayers": 11,
+        "numLayers": 10,
         "pixelAspect": 1,
         "proxySource": null,
         "renderer": "ADBE Advanced 3d",
@@ -680,7 +682,7 @@
             "hasAudio": true,
             "hasVideo": true,
             "height": 720,
-            "index": 11,
+            "index": 10,
             "isModified": true,
             "isNameFromSource": true,
             "label": 3,
@@ -693,7 +695,6 @@
             "propertyType": "NAMED_GROUP",
             "quality": 4614,
             "samplingQuality": 4812,
-            "selected": true,
             "selectedProperties": [],
             "stretch": 100,
             "trackMatteType": 5012,
@@ -4418,7 +4419,7 @@
             "autoOrient": 4212,
             "canSetEnabled": true,
             "enabled": true,
-            "index": 10,
+            "index": 9,
             "isModified": true,
             "isNameSet": true,
             "label": 4,
@@ -4429,6 +4430,7 @@
             "parent": null,
             "parentProperty": null,
             "propertyType": "NAMED_GROUP",
+            "selected": true,
             "selectedProperties": [],
             "stretch": 100,
             "properties": {
@@ -45485,7 +45487,7 @@
             "frameBlendingType": "NO_FRAME_BLEND",
             "hasVideo": true,
             "height": 720,
-            "index": 9,
+            "index": 8,
             "isModified": true,
             "isNameFromSource": true,
             "label": 1,
@@ -48895,3414 +48897,6 @@
             "frameBlendingType": "NO_FRAME_BLEND",
             "hasVideo": true,
             "height": 720,
-            "index": 8,
-            "isModified": true,
-            "isNameFromSource": true,
-            "label": 1,
-            "matchName": "ADBE AV Layer",
-            "name": "Track Solid 1",
-            "numProperties": 11,
-            "outPoint": 17.7510844177511,
-            "parent": null,
-            "parentProperty": null,
-            "propertyType": "NAMED_GROUP",
-            "quality": 4614,
-            "samplingQuality": 4812,
-            "selectedProperties": [],
-            "stretch": 100,
-            "threeDLayer": true,
-            "trackMatteType": 5012,
-            "width": 720,
-            "properties": {
-              "Marker": {
-                "active": true,
-                "canVaryOverTime": true,
-                "enabled": true,
-                "matchName": "ADBE Marker",
-                "name": "Marker",
-                "propertyDepth": 1,
-                "propertyIndex": 1,
-                "propertyType": "PROPERTY",
-                "propertyValueType": "MARKER",
-                "selectedKeys": [],
-                "keyframes": [
-                  [
-                    0,
-                    {}
-                  ]
-                ]
-              },
-              "Time Remap": {
-                "active": true,
-                "canVaryOverTime": true,
-                "enabled": true,
-                "hasMax": true,
-                "hasMin": true,
-                "matchName": "ADBE Time Remapping",
-                "name": "Time Remap",
-                "propertyDepth": 1,
-                "propertyIndex": 2,
-                "propertyType": "PROPERTY",
-                "propertyValueType": "OneD",
-                "selectedKeys": [],
-                "unitsText": "seconds",
-                "keyframes": [
-                  [
-                    0,
-                    0
-                  ]
-                ]
-              },
-              "Motion Trackers": {
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE MTrackers",
-                "name": "Motion Trackers",
-                "propertyDepth": 1,
-                "propertyIndex": 3,
-                "propertyType": "INDEXED_GROUP",
-                "keyframes": []
-              },
-              "Masks": {
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE Mask Parade",
-                "name": "Masks",
-                "propertyDepth": 1,
-                "propertyIndex": 4,
-                "propertyType": "INDEXED_GROUP",
-                "keyframes": []
-              },
-              "Effects": {
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE Effect Parade",
-                "name": "Effects",
-                "propertyDepth": 1,
-                "propertyIndex": 5,
-                "propertyType": "INDEXED_GROUP",
-                "keyframes": []
-              },
-              "Transform": {
-                "Anchor Point": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isSpatial": true,
-                  "matchName": "ADBE Anchor Point",
-                  "name": "Anchor Point",
-                  "propertyDepth": 2,
-                  "propertyIndex": 1,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "ThreeD_SPATIAL",
-                  "selectedKeys": [],
-                  "unitsText": "pixels",
-                  "value": [
-                    360,
-                    360,
-                    0
-                  ],
-                  "keyframes": [
-                    [
-                      0,
-                      [
-                        360,
-                        360,
-                        0
-                      ]
-                    ]
-                  ]
-                },
-                "Position": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isModified": true,
-                  "isSeparationLeader": true,
-                  "isSpatial": true,
-                  "matchName": "ADBE Position",
-                  "name": "Position",
-                  "propertyDepth": 2,
-                  "propertyIndex": 2,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "ThreeD_SPATIAL",
-                  "selectedKeys": [],
-                  "unitsText": "pixels",
-                  "value": [
-                    1148.53412847988,
-                    1325.87454043665,
-                    -1441.06845040929
-                  ],
-                  "keyframes": [
-                    [
-                      0,
-                      [
-                        1148.53412847988,
-                        1325.87454043665,
-                        -1441.06845040929
-                      ]
-                    ]
-                  ]
-                },
-                "X Position": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isModified": true,
-                  "isSeparationFollower": true,
-                  "matchName": "ADBE Position_0",
-                  "name": "X Position",
-                  "propertyDepth": 2,
-                  "propertyIndex": 3,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "pixels",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Y Position": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isModified": true,
-                  "isSeparationFollower": true,
-                  "matchName": "ADBE Position_1",
-                  "name": "Y Position",
-                  "propertyDepth": 2,
-                  "propertyIndex": 4,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "separationDimension": 1,
-                  "unitsText": "pixels",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Z Position": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isSeparationFollower": true,
-                  "matchName": "ADBE Position_2",
-                  "name": "Z Position",
-                  "propertyDepth": 2,
-                  "propertyIndex": 5,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "separationDimension": 2,
-                  "unitsText": "pixels",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Scale": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "matchName": "ADBE Scale",
-                  "name": "Scale",
-                  "propertyDepth": 2,
-                  "propertyIndex": 6,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "ThreeD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": [
-                    100,
-                    100,
-                    100
-                  ],
-                  "keyframes": [
-                    [
-                      0,
-                      [
-                        100,
-                        100,
-                        100
-                      ]
-                    ]
-                  ]
-                },
-                "Orientation": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "isModified": true,
-                  "isSpatial": true,
-                  "matchName": "ADBE Orientation",
-                  "name": "Orientation",
-                  "propertyDepth": 2,
-                  "propertyIndex": 7,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "ThreeD_SPATIAL",
-                  "selectedKeys": [],
-                  "unitsText": "degrees",
-                  "value": [
-                    278.326545206365,
-                    1.69208515016963,
-                    356.919914874671
-                  ],
-                  "keyframes": [
-                    [
-                      0,
-                      [
-                        278.326545206365,
-                        1.69208515016963,
-                        356.919914874671
-                      ]
-                    ]
-                  ]
-                },
-                "X Rotation": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "matchName": "ADBE Rotate X",
-                  "name": "X Rotation",
-                  "propertyDepth": 2,
-                  "propertyIndex": 8,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "degrees",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Y Rotation": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "matchName": "ADBE Rotate Y",
-                  "name": "Y Rotation",
-                  "propertyDepth": 2,
-                  "propertyIndex": 9,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "degrees",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Z Rotation": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "matchName": "ADBE Rotate Z",
-                  "name": "Z Rotation",
-                  "propertyDepth": 2,
-                  "propertyIndex": 10,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "degrees",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Opacity": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Opacity",
-                  "maxValue": 100,
-                  "name": "Opacity",
-                  "propertyDepth": 2,
-                  "propertyIndex": 11,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 100,
-                  "keyframes": [
-                    [
-                      0,
-                      100
-                    ]
-                  ]
-                },
-                "Appears in Reflections": {
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "ADBE Envir Appear in Reflect",
-                  "name": "Appears in Reflections",
-                  "propertyDepth": 2,
-                  "propertyIndex": 12,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "active": true,
-                "enabled": true,
-                "isModified": true,
-                "matchName": "ADBE Transform Group",
-                "name": "Transform",
-                "numProperties": 12,
-                "propertyDepth": 1,
-                "propertyIndex": 6,
-                "propertyType": "NAMED_GROUP",
-                "keyframes": []
-              },
-              "Layer Styles": {
-                "Blending Options": {
-                  "Global Light Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "ADBE Global Angle2",
-                    "name": "Global Light Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 120,
-                    "keyframes": [
-                      [
-                        0,
-                        120
-                      ]
-                    ]
-                  },
-                  "Global Light Altitude": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "ADBE Global Altitude2",
-                    "name": "Global Light Altitude",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 30,
-                    "keyframes": [
-                      [
-                        0,
-                        30
-                      ]
-                    ]
-                  },
-                  "Advanced Blending": {
-                    "Fill Opacity": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "hasMax": true,
-                      "hasMin": true,
-                      "matchName": "ADBE Layer Fill Opacity2",
-                      "maxValue": 100,
-                      "name": "Fill Opacity",
-                      "propertyDepth": 4,
-                      "propertyIndex": 1,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "unitsText": "percent",
-                      "value": 100,
-                      "keyframes": [
-                        [
-                          0,
-                          100
-                        ]
-                      ]
-                    },
-                    "Red": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "matchName": "ADBE R Channel Blend",
-                      "name": "Red",
-                      "propertyDepth": 4,
-                      "propertyIndex": 2,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "value": 1,
-                      "keyframes": [
-                        [
-                          0,
-                          1
-                        ]
-                      ]
-                    },
-                    "Green": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "matchName": "ADBE G Channel Blend",
-                      "name": "Green",
-                      "propertyDepth": 4,
-                      "propertyIndex": 3,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "value": 1,
-                      "keyframes": [
-                        [
-                          0,
-                          1
-                        ]
-                      ]
-                    },
-                    "Blue": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "matchName": "ADBE B Channel Blend",
-                      "name": "Blue",
-                      "propertyDepth": 4,
-                      "propertyIndex": 4,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "value": 1,
-                      "keyframes": [
-                        [
-                          0,
-                          1
-                        ]
-                      ]
-                    },
-                    "Blend Interior Styles as Group": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "matchName": "ADBE Blend Interior",
-                      "name": "Blend Interior Styles as Group",
-                      "propertyDepth": 4,
-                      "propertyIndex": 5,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "keyframes": [
-                        [
-                          0,
-                          0
-                        ]
-                      ]
-                    },
-                    "Use Blend Ranges from Source": {
-                      "active": true,
-                      "canSetExpression": true,
-                      "canVaryOverTime": true,
-                      "enabled": true,
-                      "matchName": "ADBE Blend Ranges",
-                      "name": "Use Blend Ranges from Source",
-                      "propertyDepth": 4,
-                      "propertyIndex": 6,
-                      "propertyType": "PROPERTY",
-                      "propertyValueType": "OneD",
-                      "selectedKeys": [],
-                      "value": 1,
-                      "keyframes": [
-                        [
-                          0,
-                          1
-                        ]
-                      ]
-                    },
-                    "active": true,
-                    "enabled": true,
-                    "matchName": "ADBE Adv Blend Group",
-                    "name": "Advanced Blending",
-                    "numProperties": 6,
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "NAMED_GROUP",
-                    "keyframes": []
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "ADBE Blend Options Group",
-                  "name": "Blending Options",
-                  "numProperties": 3,
-                  "propertyDepth": 2,
-                  "propertyIndex": 1,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Drop Shadow": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "dropShadow/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      0,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "Use Global Light": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/useGlobalAngle",
-                    "maxValue": 1,
-                    "name": "Use Global Light",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "dropShadow/localLightingAngle",
-                    "name": "Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 120,
-                    "keyframes": [
-                      [
-                        0,
-                        120
-                      ]
-                    ]
-                  },
-                  "Distance": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/distance",
-                    "maxValue": 30000,
-                    "name": "Distance",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Spread": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/chokeMatte",
-                    "maxValue": 100,
-                    "name": "Spread",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/blur",
-                    "maxValue": 30000,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Noise": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/noise",
-                    "maxValue": 100,
-                    "name": "Noise",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Layer Knocks Out Drop Shadow": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "dropShadow/layerConceals",
-                    "maxValue": 1,
-                    "name": "Layer Knocks Out Drop Shadow",
-                    "propertyDepth": 3,
-                    "propertyIndex": 10,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "dropShadow/enabled",
-                  "name": "Drop Shadow",
-                  "numProperties": 10,
-                  "propertyDepth": 2,
-                  "propertyIndex": 2,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Inner Shadow": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "innerShadow/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      0,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "Use Global Light": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/useGlobalAngle",
-                    "maxValue": 1,
-                    "name": "Use Global Light",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "innerShadow/localLightingAngle",
-                    "name": "Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 120,
-                    "keyframes": [
-                      [
-                        0,
-                        120
-                      ]
-                    ]
-                  },
-                  "Distance": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/distance",
-                    "maxValue": 30000,
-                    "name": "Distance",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Choke": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/chokeMatte",
-                    "maxValue": 100,
-                    "name": "Choke",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/blur",
-                    "maxValue": 30000,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Noise": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerShadow/noise",
-                    "maxValue": 100,
-                    "name": "Noise",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "innerShadow/enabled",
-                  "name": "Inner Shadow",
-                  "numProperties": 9,
-                  "propertyDepth": 2,
-                  "propertyIndex": 3,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Outer Glow": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 11,
-                    "keyframes": [
-                      [
-                        0,
-                        11
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "Noise": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/noise",
-                    "maxValue": 100,
-                    "name": "Noise",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Color Type": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/AEColorChoice",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Color Type",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "outerGlow/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      1,
-                      1,
-                      0.74509803921569,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          1,
-                          1,
-                          0.74509803921569,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Colors": {
-                    "active": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "isSpatial": true,
-                    "matchName": "outerGlow/gradient",
-                    "name": "Colors",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "NO_VALUE",
-                    "selectedKeys": [],
-                    "keyframes": []
-                  },
-                  "Gradient Smoothness": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/gradientSmoothness",
-                    "maxValue": 100,
-                    "name": "Gradient Smoothness",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Technique": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/glowTechnique",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Technique",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Spread": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/chokeMatte",
-                    "maxValue": 100,
-                    "name": "Spread",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/blur",
-                    "maxValue": 30000,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 10,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Range": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/inputRange",
-                    "maxValue": 100,
-                    "minValue": 1,
-                    "name": "Range",
-                    "propertyDepth": 3,
-                    "propertyIndex": 11,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 50,
-                    "keyframes": [
-                      [
-                        0,
-                        50
-                      ]
-                    ]
-                  },
-                  "Jitter": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "outerGlow/shadingNoise",
-                    "maxValue": 100,
-                    "name": "Jitter",
-                    "propertyDepth": 3,
-                    "propertyIndex": 12,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "outerGlow/enabled",
-                  "name": "Outer Glow",
-                  "numProperties": 12,
-                  "propertyDepth": 2,
-                  "propertyIndex": 4,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Inner Glow": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 11,
-                    "keyframes": [
-                      [
-                        0,
-                        11
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "Noise": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/noise",
-                    "maxValue": 100,
-                    "name": "Noise",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Color Type": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/AEColorChoice",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Color Type",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "innerGlow/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      1,
-                      1,
-                      0.74509803921569,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          1,
-                          1,
-                          0.74509803921569,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Colors": {
-                    "active": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "isSpatial": true,
-                    "matchName": "innerGlow/gradient",
-                    "name": "Colors",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "NO_VALUE",
-                    "selectedKeys": [],
-                    "keyframes": []
-                  },
-                  "Gradient Smoothness": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/gradientSmoothness",
-                    "maxValue": 100,
-                    "name": "Gradient Smoothness",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Technique": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/glowTechnique",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Technique",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Source": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/innerGlowSource",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Source",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Choke": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/chokeMatte",
-                    "maxValue": 100,
-                    "name": "Choke",
-                    "propertyDepth": 3,
-                    "propertyIndex": 10,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/blur",
-                    "maxValue": 30000,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 11,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Range": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/inputRange",
-                    "maxValue": 100,
-                    "minValue": 1,
-                    "name": "Range",
-                    "propertyDepth": 3,
-                    "propertyIndex": 12,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 50,
-                    "keyframes": [
-                      [
-                        0,
-                        50
-                      ]
-                    ]
-                  },
-                  "Jitter": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "innerGlow/shadingNoise",
-                    "maxValue": 100,
-                    "name": "Jitter",
-                    "propertyDepth": 3,
-                    "propertyIndex": 13,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "innerGlow/enabled",
-                  "name": "Inner Glow",
-                  "numProperties": 13,
-                  "propertyDepth": 2,
-                  "propertyIndex": 5,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Bevel and Emboss": {
-                  "Style": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/bevelStyle",
-                    "maxValue": 5,
-                    "minValue": 1,
-                    "name": "Style",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 2,
-                    "keyframes": [
-                      [
-                        0,
-                        2
-                      ]
-                    ]
-                  },
-                  "Technique": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/bevelTechnique",
-                    "maxValue": 3,
-                    "minValue": 1,
-                    "name": "Technique",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Depth": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/strengthRatio",
-                    "maxValue": 1000,
-                    "minValue": 1,
-                    "name": "Depth",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Direction": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/bevelDirection",
-                    "maxValue": 2,
-                    "minValue": 1,
-                    "name": "Direction",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/blur",
-                    "maxValue": 250,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Soften": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/softness",
-                    "maxValue": 16,
-                    "name": "Soften",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Use Global Light": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/useGlobalAngle",
-                    "maxValue": 1,
-                    "name": "Use Global Light",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "bevelEmboss/localLightingAngle",
-                    "name": "Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 120,
-                    "keyframes": [
-                      [
-                        0,
-                        120
-                      ]
-                    ]
-                  },
-                  "Altitude": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "bevelEmboss/localLightingAltitude",
-                    "name": "Altitude",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 30,
-                    "keyframes": [
-                      [
-                        0,
-                        30
-                      ]
-                    ]
-                  },
-                  "Highlight Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/highlightMode",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Highlight Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 10,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 11,
-                    "keyframes": [
-                      [
-                        0,
-                        11
-                      ]
-                    ]
-                  },
-                  "Highlight Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "bevelEmboss/highlightColor",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Highlight Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 11,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      1,
-                      1,
-                      1,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          1,
-                          1,
-                          1,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Highlight Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/highlightOpacity",
-                    "maxValue": 100,
-                    "name": "Highlight Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 12,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "Shadow Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/shadowMode",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Shadow Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 13,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Shadow Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "bevelEmboss/shadowColor",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Shadow Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 14,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      0,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Shadow Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "bevelEmboss/shadowOpacity",
-                    "maxValue": 100,
-                    "name": "Shadow Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 15,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 75,
-                    "keyframes": [
-                      [
-                        0,
-                        75
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "bevelEmboss/enabled",
-                  "name": "Bevel and Emboss",
-                  "numProperties": 15,
-                  "propertyDepth": 2,
-                  "propertyIndex": 6,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Satin": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "chromeFX/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 5,
-                    "keyframes": [
-                      [
-                        0,
-                        5
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "chromeFX/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      0,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "chromeFX/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 50,
-                    "keyframes": [
-                      [
-                        0,
-                        50
-                      ]
-                    ]
-                  },
-                  "Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "chromeFX/localLightingAngle",
-                    "name": "Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 19,
-                    "keyframes": [
-                      [
-                        0,
-                        19
-                      ]
-                    ]
-                  },
-                  "Distance": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "chromeFX/distance",
-                    "maxValue": 250,
-                    "minValue": 1,
-                    "name": "Distance",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 11,
-                    "keyframes": [
-                      [
-                        0,
-                        11
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "chromeFX/blur",
-                    "maxValue": 30000,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 14,
-                    "keyframes": [
-                      [
-                        0,
-                        14
-                      ]
-                    ]
-                  },
-                  "Invert": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "chromeFX/invert",
-                    "maxValue": 1,
-                    "name": "Invert",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "chromeFX/enabled",
-                  "name": "Satin",
-                  "numProperties": 7,
-                  "propertyDepth": 2,
-                  "propertyIndex": 7,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Color Overlay": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "solidFill/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "solidFill/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      1,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          1,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "solidFill/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "solidFill/enabled",
-                  "name": "Color Overlay",
-                  "numProperties": 3,
-                  "propertyDepth": 2,
-                  "propertyIndex": 8,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Gradient Overlay": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Colors": {
-                    "active": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "isSpatial": true,
-                    "matchName": "gradientFill/gradient",
-                    "name": "Colors",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "NO_VALUE",
-                    "selectedKeys": [],
-                    "keyframes": []
-                  },
-                  "Gradient Smoothness": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/gradientSmoothness",
-                    "maxValue": 100,
-                    "name": "Gradient Smoothness",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Angle": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "matchName": "gradientFill/angle",
-                    "name": "Angle",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "degrees",
-                    "value": 90,
-                    "keyframes": [
-                      [
-                        0,
-                        90
-                      ]
-                    ]
-                  },
-                  "Style": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/type",
-                    "maxValue": 5,
-                    "minValue": 1,
-                    "name": "Style",
-                    "propertyDepth": 3,
-                    "propertyIndex": 6,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Reverse": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/reverse",
-                    "maxValue": 1,
-                    "name": "Reverse",
-                    "propertyDepth": 3,
-                    "propertyIndex": 7,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "keyframes": [
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  },
-                  "Align with Layer": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/align",
-                    "maxValue": 1,
-                    "name": "Align with Layer",
-                    "propertyDepth": 3,
-                    "propertyIndex": 8,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Scale": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "gradientFill/scale",
-                    "maxValue": 150,
-                    "minValue": 10,
-                    "name": "Scale",
-                    "propertyDepth": 3,
-                    "propertyIndex": 9,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Offset": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "isSpatial": true,
-                    "matchName": "gradientFill/offset",
-                    "name": "Offset",
-                    "propertyDepth": 3,
-                    "propertyIndex": 10,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "TwoD_SPATIAL",
-                    "selectedKeys": [],
-                    "unitsText": "pixels",
-                    "value": [
-                      0,
-                      0
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0
-                        ]
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "gradientFill/enabled",
-                  "name": "Gradient Overlay",
-                  "numProperties": 10,
-                  "propertyDepth": 2,
-                  "propertyIndex": 9,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Pattern Overlay": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "patternFill/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "patternFill/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Link with Layer": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "patternFill/align",
-                    "maxValue": 1,
-                    "name": "Link with Layer",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Scale": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "patternFill/scale",
-                    "maxValue": 1000,
-                    "minValue": 1,
-                    "name": "Scale",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Offset": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "isSpatial": true,
-                    "matchName": "patternFill/phase",
-                    "name": "Offset",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "TwoD_SPATIAL",
-                    "selectedKeys": [],
-                    "unitsText": "pixels",
-                    "value": [
-                      0,
-                      0
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          0,
-                          0
-                        ]
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "patternFill/enabled",
-                  "name": "Pattern Overlay",
-                  "numProperties": 5,
-                  "propertyDepth": 2,
-                  "propertyIndex": 10,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "Stroke": {
-                  "Blend Mode": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "frameFX/mode2",
-                    "maxValue": 33,
-                    "minValue": 1,
-                    "name": "Blend Mode",
-                    "propertyDepth": 3,
-                    "propertyIndex": 1,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "Color": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "isSpatial": true,
-                    "matchName": "frameFX/color",
-                    "maxValue": 3921568.62745098,
-                    "minValue": -3921568.62745098,
-                    "name": "Color",
-                    "propertyDepth": 3,
-                    "propertyIndex": 2,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "COLOR",
-                    "selectedKeys": [],
-                    "value": [
-                      1,
-                      0,
-                      0,
-                      1
-                    ],
-                    "keyframes": [
-                      [
-                        0,
-                        [
-                          1,
-                          0,
-                          0,
-                          1
-                        ]
-                      ]
-                    ]
-                  },
-                  "Size": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "frameFX/size",
-                    "maxValue": 30000,
-                    "minValue": 1,
-                    "name": "Size",
-                    "propertyDepth": 3,
-                    "propertyIndex": 3,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 3,
-                    "keyframes": [
-                      [
-                        0,
-                        3
-                      ]
-                    ]
-                  },
-                  "Opacity": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "frameFX/opacity",
-                    "maxValue": 100,
-                    "name": "Opacity",
-                    "propertyDepth": 3,
-                    "propertyIndex": 4,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "unitsText": "percent",
-                    "value": 100,
-                    "keyframes": [
-                      [
-                        0,
-                        100
-                      ]
-                    ]
-                  },
-                  "Position": {
-                    "active": true,
-                    "canSetExpression": true,
-                    "canVaryOverTime": true,
-                    "enabled": true,
-                    "hasMax": true,
-                    "hasMin": true,
-                    "matchName": "frameFX/style",
-                    "maxValue": 3,
-                    "minValue": 1,
-                    "name": "Position",
-                    "propertyDepth": 3,
-                    "propertyIndex": 5,
-                    "propertyType": "PROPERTY",
-                    "propertyValueType": "OneD",
-                    "selectedKeys": [],
-                    "value": 1,
-                    "keyframes": [
-                      [
-                        0,
-                        1
-                      ]
-                    ]
-                  },
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "frameFX/enabled",
-                  "name": "Stroke",
-                  "numProperties": 5,
-                  "propertyDepth": 2,
-                  "propertyIndex": 11,
-                  "propertyType": "NAMED_GROUP",
-                  "keyframes": []
-                },
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE Layer Styles",
-                "name": "Layer Styles",
-                "numProperties": 11,
-                "propertyDepth": 1,
-                "propertyIndex": 7,
-                "propertyType": "NAMED_GROUP",
-                "keyframes": []
-              },
-              "Geometry Options": {
-                "Bevel Style": {
-                  "active": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Bevel Styles",
-                  "maxValue": 4,
-                  "minValue": 1,
-                  "name": "Bevel Style",
-                  "propertyDepth": 2,
-                  "propertyIndex": 1,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Bevel Direction": {
-                  "active": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Bevel Direction",
-                  "maxValue": 2,
-                  "minValue": 1,
-                  "name": "Bevel Direction",
-                  "propertyDepth": 2,
-                  "propertyIndex": 2,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Bevel Depth": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Bevel Depth",
-                  "maxValue": 100,
-                  "name": "Bevel Depth",
-                  "propertyDepth": 2,
-                  "propertyIndex": 3,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 2,
-                  "keyframes": [
-                    [
-                      0,
-                      2
-                    ]
-                  ]
-                },
-                "Hole Bevel Depth": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Hole Bevel Depth",
-                  "maxValue": 100,
-                  "name": "Hole Bevel Depth",
-                  "propertyDepth": 2,
-                  "propertyIndex": 4,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 100,
-                  "keyframes": [
-                    [
-                      0,
-                      100
-                    ]
-                  ]
-                },
-                "Extrusion Depth": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Extrsn Depth",
-                  "maxValue": 10000,
-                  "name": "Extrusion Depth",
-                  "propertyDepth": 2,
-                  "propertyIndex": 5,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE Extrsn Options Group",
-                "name": "Geometry Options",
-                "numProperties": 5,
-                "propertyDepth": 1,
-                "propertyIndex": 9,
-                "propertyType": "NAMED_GROUP",
-                "keyframes": []
-              },
-              "Material Options": {
-                "Casts Shadows": {
-                  "active": true,
-                  "enabled": true,
-                  "isModified": true,
-                  "matchName": "ADBE Casts Shadows",
-                  "name": "Casts Shadows",
-                  "propertyDepth": 2,
-                  "propertyIndex": 1,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Light Transmission": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Light Transmission",
-                  "maxValue": 100,
-                  "name": "Light Transmission",
-                  "propertyDepth": 2,
-                  "propertyIndex": 2,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Accepts Shadows": {
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "ADBE Accepts Shadows",
-                  "name": "Accepts Shadows",
-                  "propertyDepth": 2,
-                  "propertyIndex": 3,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Accepts Lights": {
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "ADBE Accepts Lights",
-                  "name": "Accepts Lights",
-                  "propertyDepth": 2,
-                  "propertyIndex": 4,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Appears in Reflections": {
-                  "active": true,
-                  "enabled": true,
-                  "matchName": "ADBE Appears in Reflections",
-                  "name": "Appears in Reflections",
-                  "propertyDepth": 2,
-                  "propertyIndex": 5,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "Ambient": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Ambient Coefficient",
-                  "maxValue": 100,
-                  "name": "Ambient",
-                  "propertyDepth": 2,
-                  "propertyIndex": 6,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 100,
-                  "keyframes": [
-                    [
-                      0,
-                      100
-                    ]
-                  ]
-                },
-                "Diffuse": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Diffuse Coefficient",
-                  "maxValue": 100,
-                  "name": "Diffuse",
-                  "propertyDepth": 2,
-                  "propertyIndex": 7,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 50,
-                  "keyframes": [
-                    [
-                      0,
-                      50
-                    ]
-                  ]
-                },
-                "Specular Intensity": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Specular Coefficient",
-                  "maxValue": 100,
-                  "name": "Specular Intensity",
-                  "propertyDepth": 2,
-                  "propertyIndex": 8,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 50,
-                  "keyframes": [
-                    [
-                      0,
-                      50
-                    ]
-                  ]
-                },
-                "Specular Shininess": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Shininess Coefficient",
-                  "maxValue": 100,
-                  "name": "Specular Shininess",
-                  "propertyDepth": 2,
-                  "propertyIndex": 9,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 5,
-                  "keyframes": [
-                    [
-                      0,
-                      5
-                    ]
-                  ]
-                },
-                "Metal": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Metal Coefficient",
-                  "maxValue": 100,
-                  "name": "Metal",
-                  "propertyDepth": 2,
-                  "propertyIndex": 10,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 100,
-                  "keyframes": [
-                    [
-                      0,
-                      100
-                    ]
-                  ]
-                },
-                "Reflection Intensity": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Reflection Coefficient",
-                  "maxValue": 100,
-                  "name": "Reflection Intensity",
-                  "propertyDepth": 2,
-                  "propertyIndex": 11,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Reflection Sharpness": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Glossiness Coefficient",
-                  "maxValue": 100,
-                  "name": "Reflection Sharpness",
-                  "propertyDepth": 2,
-                  "propertyIndex": 12,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "value": 100,
-                  "keyframes": [
-                    [
-                      0,
-                      100
-                    ]
-                  ]
-                },
-                "Reflection Rolloff": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Fresnel Coefficient",
-                  "maxValue": 100,
-                  "name": "Reflection Rolloff",
-                  "propertyDepth": 2,
-                  "propertyIndex": 13,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Transparency": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Transparency Coefficient",
-                  "maxValue": 100,
-                  "name": "Transparency",
-                  "propertyDepth": 2,
-                  "propertyIndex": 14,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Transparency Rolloff": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Transp Rolloff",
-                  "maxValue": 100,
-                  "name": "Transparency Rolloff",
-                  "propertyDepth": 2,
-                  "propertyIndex": 15,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "unitsText": "percent",
-                  "keyframes": [
-                    [
-                      0,
-                      0
-                    ]
-                  ]
-                },
-                "Index of Refraction": {
-                  "active": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Index of Refraction",
-                  "maxValue": 5,
-                  "minValue": 1,
-                  "name": "Index of Refraction",
-                  "propertyDepth": 2,
-                  "propertyIndex": 16,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "OneD",
-                  "selectedKeys": [],
-                  "value": 1,
-                  "keyframes": [
-                    [
-                      0,
-                      1
-                    ]
-                  ]
-                },
-                "active": true,
-                "enabled": true,
-                "isModified": true,
-                "matchName": "ADBE Material Options Group",
-                "name": "Material Options",
-                "numProperties": 16,
-                "propertyDepth": 1,
-                "propertyIndex": 10,
-                "propertyType": "NAMED_GROUP",
-                "keyframes": []
-              },
-              "Audio": {
-                "Audio Levels": {
-                  "active": true,
-                  "canSetExpression": true,
-                  "canVaryOverTime": true,
-                  "enabled": true,
-                  "hasMax": true,
-                  "hasMin": true,
-                  "matchName": "ADBE Audio Levels",
-                  "maxValue": 24,
-                  "minValue": -192,
-                  "name": "Audio Levels",
-                  "propertyDepth": 2,
-                  "propertyIndex": 1,
-                  "propertyType": "PROPERTY",
-                  "propertyValueType": "TwoD",
-                  "selectedKeys": [],
-                  "unitsText": "dB",
-                  "value": [
-                    0,
-                    0
-                  ],
-                  "keyframes": [
-                    [
-                      0,
-                      [
-                        0,
-                        0
-                      ]
-                    ]
-                  ]
-                },
-                "active": true,
-                "enabled": true,
-                "matchName": "ADBE Audio Group",
-                "name": "Audio",
-                "numProperties": 1,
-                "propertyDepth": 1,
-                "propertyIndex": 11,
-                "propertyType": "NAMED_GROUP",
-                "keyframes": []
-              }
-            },
-            "nullLayer": false,
-            "source": null
-          },
-          {
-            "active": true,
-            "audioEnabled": true,
-            "autoOrient": 4212,
-            "blendingMode": "NORMAL",
-            "canSetCollapseTransformation": true,
-            "canSetEnabled": true,
-            "effectsActive": true,
-            "enabled": true,
-            "frameBlendingType": "NO_FRAME_BLEND",
-            "hasVideo": true,
-            "height": 720,
             "index": 7,
             "isModified": true,
             "isNameFromSource": true,
@@ -52439,17 +49033,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    2042.81521803674,
-                    762.548098584283,
-                    2060.58191625852
+                    823.534128479885,
+                    1325.87454043665,
+                    -1441.06845040929
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        2042.81521803674,
-                        762.548098584283,
-                        2060.58191625852
+                        823.534128479885,
+                        1325.87454043665,
+                        -1441.06845040929
                       ]
                     ]
                   ]
@@ -52523,6 +49117,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -52533,7 +49128,7 @@
                   "unitsText": "percent",
                   "value": [
                     100,
-                    100,
+                    438,
                     100
                   ],
                   "keyframes": [
@@ -52541,7 +49136,7 @@
                       0,
                       [
                         100,
-                        100,
+                        438,
                         100
                       ]
                     ]
@@ -52563,17 +49158,17 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    278.324821089358,
-                    3.42024662272253,
-                    3.56704731885272
+                    278.326545206365,
+                    1.69208515016963,
+                    346.919914874671
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        278.324821089358,
-                        3.42024662272253,
-                        3.56704731885272
+                        278.326545206365,
+                        1.69208515016963,
+                        346.919914874671
                       ]
                     ]
                   ]
@@ -55847,17 +52442,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    5631.11569264495,
-                    1752.55013759436,
-                    -5789.07644289332
+                    2042.81521803674,
+                    762.548098584283,
+                    2060.58191625852
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        5631.11569264495,
-                        1752.55013759436,
-                        -5789.07644289332
+                        2042.81521803674,
+                        762.548098584283,
+                        2060.58191625852
                       ]
                     ]
                   ]
@@ -55931,6 +52526,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -55940,17 +52536,17 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    100,
-                    100,
-                    100
+                    249,
+                    445,
+                    211
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        100,
-                        100,
-                        100
+                        249,
+                        445,
+                        211
                       ]
                     ]
                   ]
@@ -55971,17 +52567,17 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    278.95882328749,
-                    3.19088896707092,
-                    345.883195886063
+                    278.324821089358,
+                    3.42024662272253,
+                    3.56704731885272
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        278.95882328749,
-                        3.19088896707092,
-                        345.883195886063
+                        278.324821089358,
+                        3.42024662272253,
+                        3.56704731885272
                       ]
                     ]
                   ]
@@ -59255,17 +55851,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    5188.63506402931,
-                    -210.823131648073,
-                    -236.574263942631
+                    5241.86445919026,
+                    -151.782883716153,
+                    -219.459558653698
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        5188.63506402931,
-                        -210.823131648073,
-                        -236.574263942631
+                        5241.86445919026,
+                        -151.782883716153,
+                        -219.459558653698
                       ]
                     ]
                   ]
@@ -59339,6 +55935,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -59349,7 +55946,7 @@
                   "unitsText": "percent",
                   "value": [
                     100,
-                    100,
+                    291,
                     100
                   ],
                   "keyframes": [
@@ -59357,7 +55954,7 @@
                       0,
                       [
                         100,
-                        100,
+                        291,
                         100
                       ]
                     ]
@@ -59379,16 +55976,16 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    15.084683516837,
-                    58.4912468235445,
+                    21.084683516837,
+                    64.4912468235445,
                     349.604565876269
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        15.084683516837,
-                        58.4912468235445,
+                        21.084683516837,
+                        64.4912468235445,
                         349.604565876269
                       ]
                     ]
@@ -62664,7 +59261,7 @@
                   "unitsText": "pixels",
                   "value": [
                     4782.15833076913,
-                    122.364389363227,
+                    -517.635610636773,
                     2153.31050982665
                   ],
                   "keyframes": [
@@ -62672,7 +59269,7 @@
                       0,
                       [
                         4782.15833076913,
-                        122.364389363227,
+                        -517.635610636773,
                         2153.31050982665
                       ]
                     ]
@@ -62747,6 +59344,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -62756,16 +59354,16 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    100,
-                    100,
+                    133,
+                    312,
                     100
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        100,
-                        100,
+                        133,
+                        312,
                         100
                       ]
                     ]
@@ -62787,7 +59385,7 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    17.7550224409592,
+                    24.7550224409592,
                     79.599047499257,
                     342.783654045962
                   ],
@@ -62795,7 +59393,7 @@
                     [
                       0,
                       [
-                        17.7550224409592,
+                        24.7550224409592,
                         79.599047499257,
                         342.783654045962
                       ]
@@ -66071,7 +62669,7 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    -128.298563719591,
+                    824.701436280409,
                     162.128788898904,
                     6928.9842544078
                   ],
@@ -66079,7 +62677,7 @@
                     [
                       0,
                       [
-                        -128.298563719591,
+                        824.701436280409,
                         162.128788898904,
                         6928.9842544078
                       ]
@@ -66155,6 +62753,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -66164,17 +62763,17 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    100,
-                    100,
-                    100
+                    172,
+                    825,
+                    282
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        100,
-                        100,
-                        100
+                        172,
+                        825,
+                        282
                       ]
                     ]
                   ]
@@ -66197,7 +62796,7 @@
                   "value": [
                     278.147606728075,
                     1.13026752646637,
-                    21.2839800467772
+                    3.28398004677717
                   ],
                   "keyframes": [
                     [
@@ -66205,7 +62804,7 @@
                       [
                         278.147606728075,
                         1.13026752646637,
-                        21.2839800467772
+                        3.28398004677717
                       ]
                     ]
                   ]
@@ -69480,7 +66079,7 @@
                   "unitsText": "pixels",
                   "value": [
                     4362.05776406304,
-                    -1784.53768806741,
+                    -1944.53768806741,
                     12680.4533998129
                   ],
                   "keyframes": [
@@ -69488,7 +66087,7 @@
                       0,
                       [
                         4362.05776406304,
-                        -1784.53768806741,
+                        -1944.53768806741,
                         12680.4533998129
                       ]
                     ]
@@ -69563,6 +66162,7 @@
                   "canSetExpression": true,
                   "canVaryOverTime": true,
                   "enabled": true,
+                  "isModified": true,
                   "matchName": "ADBE Scale",
                   "name": "Scale",
                   "propertyDepth": 2,
@@ -69572,17 +66172,17 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    100,
-                    100,
-                    100
+                    167,
+                    254,
+                    167
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        100,
-                        100,
-                        100
+                        167,
+                        254,
+                        167
                       ]
                     ]
                   ]
@@ -69603,7 +66203,7 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    177.380179310379,
+                    184.380179310379,
                     81.4789716792901,
                     183.037385519248
                   ],
@@ -69611,7 +66211,7 @@
                     [
                       0,
                       [
-                        177.380179310379,
+                        184.380179310379,
                         81.4789716792901,
                         183.037385519248
                       ]
@@ -72888,7 +69488,7 @@
                   "unitsText": "pixels",
                   "value": [
                     -16453.3687711731,
-                    -8820.98106681734,
+                    -8734.98106681734,
                     35056.0802504652
                   ],
                   "keyframes": [
@@ -72896,7 +69496,7 @@
                       0,
                       [
                         -16453.3687711731,
-                        -8820.98106681734,
+                        -8734.98106681734,
                         35056.0802504652
                       ]
                     ]
@@ -72981,16 +69581,16 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    801,
-                    397,
+                    2133,
+                    355,
                     801
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        801,
-                        397,
+                        2133,
+                        355,
                         801
                       ]
                     ]

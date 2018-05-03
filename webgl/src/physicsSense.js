@@ -68,14 +68,14 @@ export default class physicsSense {
 	}
 
 
-	addBox(raycaster) {
+	addBox(raycaster,boxMap) {
 		var quat = new THREE.Quaternion();
 		var pos = new THREE.Vector3();
 
 		var boxMaterial = new THREE.MeshPhongMaterial({
 			// color: 0xFFFFFF * Math.random(),
 			// wireframe: true,
-			map: new THREE.TextureLoader().load("assets/box.png"),
+			map: boxMap,
 		})
 
 		var boxS = 500 * this.jsonScale;

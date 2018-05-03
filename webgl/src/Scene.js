@@ -63,6 +63,9 @@ var debug = 0;
 var DEMO_NUM = 2;
 
 
+var boxMap = new THREE.TextureLoader().load("assets/box.png");
+
+
 export default class Scene {
 	constructor() {
 
@@ -71,6 +74,7 @@ export default class Scene {
 		// document.body.appendChild(this.stats.dom);
 
 		loading.style.display = "none";
+		
 
 
 
@@ -90,8 +94,9 @@ export default class Scene {
 
 			lightPostion = new THREE.Vector3(-1, 1.3, 2);
 
-		    tip.style.display = "block";
-		    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+	        loading.style.display = "block";
+		    loading.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+
 		});
 		document.getElementById('btn2').addEventListener('click', function() {
 			DEMO_NUM = 3;
@@ -102,8 +107,9 @@ export default class Scene {
 
 			lightPostion = new THREE.Vector3(-2, 1.3, -2);
 
-		    tip.style.display = "block";
-		    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+	        loading.style.display = "block";
+		    loading.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+
 		});
 
 		// this.loadSound();
@@ -193,6 +199,12 @@ export default class Scene {
 
 	init() {
 
+		loading.style.display = "none";
+
+	    tip.style.display = "block";
+	    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+
+
 		container = document.getElementById('webglContainer');
 
 		this.camera;
@@ -211,7 +223,8 @@ export default class Scene {
 			new THREE.BoxGeometry(200, 50, 300),
 			new THREE.MeshBasicMaterial({
 				color: 0xffffff,
-				wireframe: true
+				wireframe: true,
+				visible: false
 			})
 		);
 		this.scene.add(cameraPerspective);
@@ -227,7 +240,6 @@ export default class Scene {
 				new THREE.BoxGeometry(widthSolids[i], widthSolids[i], 1),
 				new THREE.MeshBasicMaterial({
 					color: 0xffffff * Math.random(),
-					opacity: 0.6,
 					wireframe: true,
 					visible: false
 				})
@@ -358,7 +370,7 @@ export default class Scene {
 	addBox() {
 		if (physics) {
 			raycaster.setFromCamera(mouse, That.camera);
-			physics.addBox(raycaster);
+			physics.addBox(raycaster,boxMap);
 
 			tip.style.display = "none";
 		}
