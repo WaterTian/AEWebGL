@@ -65,6 +65,8 @@ var DEMO_NUM = 2;
 
 var boxMap = new THREE.TextureLoader().load("assets/box.png");
 
+var weatherTxt = "TYMV";
+var weatherFont;
 
 export default class Scene {
 	constructor() {
@@ -74,7 +76,6 @@ export default class Scene {
 		// document.body.appendChild(this.stats.dom);
 
 		loading.style.display = "none";
-		
 
 
 
@@ -94,8 +95,8 @@ export default class Scene {
 
 			lightPostion = new THREE.Vector3(-1, 1.3, 2);
 
-	        loading.style.display = "block";
-		    loading.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+			loading.style.display = "block";
+			loading.style.top = window.innerWidth * 9 / 16 * 0.5 + "px";
 
 		});
 		document.getElementById('btn2').addEventListener('click', function() {
@@ -107,12 +108,21 @@ export default class Scene {
 
 			lightPostion = new THREE.Vector3(-2, 1.3, -2);
 
-	        loading.style.display = "block";
-		    loading.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+			loading.style.display = "block";
+			loading.style.top = window.innerWidth * 9 / 16 * 0.5 + "px";
 
 		});
 
 		// this.loadSound();
+		this.loadFont();
+
+	}
+
+	loadFont() {
+		var loader = new THREE.FontLoader();
+		loader.load('assets/helvetiker_regular.typeface.json', function(font) {
+			weatherFont = font;
+		});
 
 	}
 
@@ -201,8 +211,8 @@ export default class Scene {
 
 		loading.style.display = "none";
 
-	    tip.style.display = "block";
-	    tip.style.top = window.innerWidth * 9 / 16 *0.5 +"px";
+		tip.style.display = "block";
+		tip.style.top = window.innerWidth * 9 / 16 * 0.5 + "px";
 
 
 		container = document.getElementById('webglContainer');
@@ -256,10 +266,52 @@ export default class Scene {
 
 
 
-		var groundTransform = transformSolids[0];
+		//////
+		weatherTxt = "";
+		var matLite = new THREE.MeshBasicMaterial({
+			color: 0x000000,
+			transparent: true,
+			opacity: 0.3,
+			// side: THREE.DoubleSide
+		});
+		var geometry = new THREE.ShapeGeometry(weatherFont.generateShapes(weatherTxt, 100, 2));
+		geometry.scale(-1, 1, 1);
+		geometry.translate(100, 0, 0);
+		geometry.computeBoundingBox();
+		var textShape = new THREE.BufferGeometry();
+		textShape.fromGeometry(geometry);
+
+		var weatherTransform = transformSolids[transformSolids.length - 1];
+		if (DEMO_NUM == 3) weatherTransform = transformSolids[0];
+		var weather = new THREE.Mesh(textShape, matLite);
+
+		this.scene.add(weather);
+		weather.position.set(-weatherTransform.x, -weatherTransform.y, weatherTransform.z);
+		weather.scale.set(weatherTransform.sx / 100, weatherTransform.sy / 100, weatherTransform.sz / 100);
+		var quaternion = new THREE.Quaternion();
+		quaternion.setFromEuler(new THREE.Euler(-weatherTransform.rx * Math.PI / 180, -weatherTransform.ry * Math.PI / 180, weatherTransform.rz * Math.PI / 180, 'XYZ'));
+		weather.rotation.setFromQuaternion(quaternion);
+
+		txtLoop();
+		function txtLoop() {
+			weatherTxt = "    TYMV\n " + That.getNowFormatDate();
+			geometry = new THREE.ShapeGeometry(weatherFont.generateShapes(weatherTxt, 100, 2));
+			geometry.scale(-1, 1, 1);
+			geometry.translate(200, 0, 0);
+			geometry.computeBoundingBox();
+			textShape = new THREE.BufferGeometry();
+			textShape.fromGeometry(geometry);
+
+			weather.geometry = textShape;
+
+			setTimeout(txtLoop, 1000);
+		}
+		//////
+
 
 
 		//////
+		var groundTransform = transformSolids[0];
 		var ground = new THREE.Mesh(
 			new THREE.BoxGeometry(widthSolids[0], widthSolids[0], 1),
 			new THREE.ShadowMaterial({
@@ -370,7 +422,7 @@ export default class Scene {
 	addBox() {
 		if (physics) {
 			raycaster.setFromCamera(mouse, That.camera);
-			physics.addBox(raycaster,boxMap);
+			physics.addBox(raycaster, boxMap);
 
 			tip.style.display = "none";
 		}
@@ -498,6 +550,34 @@ export default class Scene {
 
 	}
 
+
+	getNowFormatDate() {
+		var date = new Date();
+		var seperator1 = "-";
+		var seperator2 = ":";
+		var month = date.getMonth() + 1;
+		var strDate = date.getDate();
+		if (month >= 1 && month <= 9) {
+			month = "0" + month;
+		}
+		if (strDate >= 0 && strDate <= 9) {
+			strDate = "0" + strDate;
+		}
+
+		var hours = date.getHours();
+		if (hours <= 9) hours = "0" + hours;
+		var minutes = date.getMinutes();
+		if (minutes <= 9) minutes = "0" + minutes;
+		var seconds = date.getSeconds();
+		if (seconds % 2) seperator2 = ".";
+		if (seconds <= 9) seconds = "0" + seconds;
+
+
+
+		var currentdate = hours + seperator2 + minutes + seperator2 + seconds;
+
+		return currentdate;
+	}
 
 
 }

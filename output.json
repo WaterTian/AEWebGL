@@ -11,7 +11,7 @@
   "isProfessionalVersion": true,
   "isoLanguage": "en_US",
   "language": 1612,
-  "memoryInUse": 2205237248,
+  "memoryInUse": 4012490752,
   "saveProjectOnCrash": true,
   "version": "14.0.0x207",
   "project": {
@@ -21,7 +21,7 @@
     "framesCountType": 2614,
     "gpuAccelType": 1815,
     "numItems": 12,
-    "revision": 2327,
+    "revision": 2947,
     "timeDisplayType": 2013,
     "toolType": 8812,
     "items": [
@@ -695,6 +695,7 @@
             "propertyType": "NAMED_GROUP",
             "quality": 4614,
             "samplingQuality": 4812,
+            "selected": true,
             "selectedProperties": [],
             "stretch": 100,
             "trackMatteType": 5012,
@@ -4430,7 +4431,6 @@
             "parent": null,
             "parentProperty": null,
             "propertyType": "NAMED_GROUP",
-            "selected": true,
             "selectedProperties": [],
             "stretch": 100,
             "properties": {
@@ -69487,17 +69487,17 @@
                   "selectedKeys": [],
                   "unitsText": "pixels",
                   "value": [
-                    -16453.3687711731,
-                    -8734.98106681734,
-                    35056.0802504652
+                    -15964.3687711731,
+                    -11958.9810668173,
+                    35400.0802504652
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        -16453.3687711731,
-                        -8734.98106681734,
-                        35056.0802504652
+                        -15964.3687711731,
+                        -11958.9810668173,
+                        35400.0802504652
                       ]
                     ]
                   ]
@@ -69581,16 +69581,16 @@
                   "selectedKeys": [],
                   "unitsText": "percent",
                   "value": [
-                    2133,
-                    355,
+                    2362,
+                    1208,
                     801
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        2133,
-                        355,
+                        2362,
+                        1208,
                         801
                       ]
                     ]
@@ -69612,17 +69612,17 @@
                   "selectedKeys": [],
                   "unitsText": "degrees",
                   "value": [
-                    39.6515038398436,
-                    340.289694880933,
-                    10.4379798741805
+                    19.4561379216223,
+                    329.540231479294,
+                    4.31593540272661
                   ],
                   "keyframes": [
                     [
                       0,
                       [
-                        39.6515038398436,
-                        340.289694880933,
-                        10.4379798741805
+                        19.4561379216223,
+                        329.540231479294,
+                        4.31593540272661
                       ]
                     ]
                   ]
